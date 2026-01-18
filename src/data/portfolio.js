@@ -33,7 +33,7 @@ export const aboutData = {
     stats: [
         { label: "Experience", value: "5+ Years" },
         { label: "Integrations", value: "10+" },
-        { label: "Odoo Versions", value: "v14 - v17" }
+        { label: "Odoo Versions", value: "v10 - v19" }
     ],
     highlights: [
         "Expert in Odoo Technical Development (Python, XML, JS)",
