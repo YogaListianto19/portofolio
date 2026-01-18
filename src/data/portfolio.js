@@ -83,48 +83,52 @@ export const experienceData = [
     }
 ];
 
+const getImagePath = (path) => {
+    return import.meta.env.BASE_URL + path;
+}
+
 export const projectsData = [
     {
         title: "SNAP BCA -> VA BCA Integration",
         category: "Payment Integration",
         description: "Seamless integration between Odoo and SNAP BCA for automatic Virtual Account (VA) issuance. Enables real-time payment reconciliation and improved cash flow management.",
         tech: ["Odoo", "Python", "BCA API", "JSON"],
-        image: "./projects/payment.png"
+        image: getImagePath("projects/payment.png")
     },
     {
         title: "WhatsApp API Integration",
         category: "Communication & Notification",
         description: "Automated notification system sending WhatsApp messages for Sales Orders, Invoices, and Delivery updates. Built with Node.js middleware connecting Odoo to WA Gateway.",
         tech: ["Odoo", "Node.js", "Rest API", "Webhook"],
-        image: "./projects/whatsapp.png"
+        image: getImagePath("projects/whatsapp.png")
     },
     {
         title: "School Data Application",
         category: "Education ERP",
         description: "Comprehensive Odoo v14 custom module for school management. Features include student enrollment, curriculum planning, and teacher data management.",
         tech: ["Odoo 14", "Python", "XML", "PostgreSQL"],
-        image: "./projects/school.png"
+        image: getImagePath("projects/school.png")
     },
     {
         title: "Sales Commission System",
         category: "Sales Module",
         description: "Advanced commission calculation engine integrated with Odoo Sales Order. Automates percentage-based rewards for sales teams based on revenue targets and margins.",
         tech: ["Odoo Sales", "Python", "Accounting"],
-        image: "./projects/commission.png"
+        image: getImagePath("projects/commission.png")
     },
     {
         title: "Customer Reward Points",
         category: "Loyalty Program",
         description: "A comprehensive loyalty points system allowing customers to earn and redeem points. Fully integrated with Odoo POS and Website modules for seamless user experience.",
         tech: ["Odoo POS", "Website", "Python"],
-        image: "./projects/rewards.png"
+        image: getImagePath("projects/rewards.png")
     },
     {
         title: "Manufacturing Customization",
         category: "MRP",
         description: "Deep customization of Odoo Manufacturing module to support multi-step production flows, work center tracking, and automated material consumption logic.",
         tech: ["Odoo MRP", "Python", "XML"],
-        image: "./projects/manufacturing.png"
+        image: getImagePath("projects/manufacturing.png")
     }
 ];
 
