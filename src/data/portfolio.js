@@ -63,7 +63,7 @@ export const heroReceipt = {
         { k: "Jumlah", v: "5 ekor" },
         { k: "Tempo", v: "30 hari" },
     ],
-    footer: "*** order tersimpan ***",
+    status: "Tersimpan",
     caption: "Ilustrasi satu order di AI agent WhatsApp → LLM → ERP yang saya bangun. Nama produk dan data disamarkan.",
 };
 
@@ -659,10 +659,12 @@ export const contact = {
     headline: "Punya ide produk, atau alur kerja yang",
     emphasis: "menyita waktu tim Anda?",
     sub: "Ceritakan apa yang ingin Anda capai. Saya balas dalam 24 jam dengan pertanyaan, gambaran pendekatan, dan apakah saya orang yang tepat.",
-    // TODO(Yoga): isi email pribadi dan nomor WhatsApp (format "62812xxxxxxx") — kartunya tampil otomatis setelah diisi.
+    // TODO(Yoga): isi email pribadi — kartunya tampil otomatis setelah diisi.
     email: "",
-    whatsapp: "",
-    whatsappLabel: "",
+    // Nomor dalam format internasional (tanpa 0 / +) untuk link click-to-chat wa.me
+    whatsapp: "6289694331588",
+    whatsappLabel: "+62 896-9433-1588",
+    whatsappText: "Halo Yoga, saya melihat portofolio Anda dan ingin mendiskusikan sebuah proyek.",
     linkedin: "https://www.linkedin.com/in/yoga-listianto-87153a208/",
     github: "https://github.com/YogaListianto19",
 };

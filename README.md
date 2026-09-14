@@ -14,10 +14,11 @@ Sistem milik klien dan perusahaan ditulis tanpa nama maupun data asli. Contoh or
 
 ## Desain
 
-Gaya editorial ala majalah (Swiss grid 12 kolom):
+Gaya "spatial terang" yang futuristik tapi tetap bersih, di atas grid 12 kolom:
 
-- Latar kertas hangat, tinta hitam, dan satu warna aksen oranye bata.
-- Font: Libre Bodoni untuk judul, Public Sans untuk teks, JetBrains Mono untuk nota.
+- Ungu klasik Odoo (#875A7B) di atas latar putih lavender. Teal, pink, hijau, dan kuning khas Odoo dipakai sebagai aksen kecil.
+- Cahaya aurora lembut di hero, panel melayang, nota berlapis kaca, dan teks gradasi ungu → teal pada frasa utama.
+- Font: Sora untuk judul, Public Sans untuk teks, JetBrains Mono untuk nota.
 - Tema terang dan gelap mengikuti pengaturan sistem, dan bisa diganti manual.
 - Menghormati `prefers-reduced-motion`.
 - Panel detail proyek bisa dioperasikan dengan keyboard: Esc untuk menutup, dan fokus dikembalikan ke elemen sebelumnya.

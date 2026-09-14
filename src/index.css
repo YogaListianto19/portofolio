@@ -5,20 +5,20 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 6rem;
   }
   body {
     @apply bg-paper font-sans text-ink antialiased dark:bg-night dark:text-stone-100;
   }
   h1, h2, h3, h4 {
-    @apply font-serif font-normal;
-    letter-spacing: -0.015em;
+    @apply font-display font-semibold;
+    letter-spacing: -0.03em;
   }
   :focus-visible {
     @apply outline-none ring-2 ring-brand-teal ring-offset-2 ring-offset-paper dark:ring-brand-teal-light dark:ring-offset-night;
   }
   ::selection {
-    @apply bg-brand-yellow/40;
+    @apply bg-glow-purple/50;
   }
 }
 
@@ -39,25 +39,24 @@
     @apply cursor-pointer underline decoration-ink/30 decoration-1 underline-offset-[6px] transition-colors duration-200 hover:text-accent hover:decoration-accent dark:decoration-stone-100/30 dark:hover:text-accent-bright dark:hover:decoration-accent-bright;
   }
   .btn-primary {
-    @apply inline-flex min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-full bg-brand-purple px-6 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-brand-teal dark:bg-brand-purple-light dark:text-night dark:hover:bg-brand-teal-light;
+    @apply inline-flex min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-full bg-brand-purple px-6 text-[15px] font-semibold text-white shadow-glow transition-[background-color,box-shadow] duration-200 hover:bg-brand-teal hover:shadow-glow-teal dark:bg-brand-purple-light dark:text-night dark:shadow-none dark:hover:bg-brand-teal-light;
   }
   .btn-line {
-    @apply inline-flex min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-full border border-ink/30 px-6 text-[15px] font-semibold text-ink transition-colors duration-200 hover:border-brand-purple hover:text-brand-purple dark:border-stone-100/30 dark:text-stone-100 dark:hover:border-brand-purple-light dark:hover:text-brand-purple-light;
+    @apply inline-flex min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-full border border-ink/20 bg-white/60 px-6 text-[15px] font-semibold text-ink backdrop-blur transition-colors duration-200 hover:border-brand-purple hover:text-brand-purple dark:border-stone-100/25 dark:bg-white/5 dark:text-stone-100 dark:hover:border-brand-purple-light dark:hover:text-brand-purple-light;
   }
-  /* Highlighter stroke behind key words (odoo.com-style) */
-  .marker {
-    background-image: linear-gradient(transparent 60%, rgb(251 177 48 / 0.55) 60%, rgb(251 177 48 / 0.55) 90%, transparent 90%);
+  /* Floating surface used for cards across the page */
+  .panel {
+    @apply rounded-2xl border border-brand-purple/10 bg-white/75 shadow-panel backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none;
+  }
+  /* Odoo purple → violet → teal, only for the hero highlight */
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-purple via-brand-violet to-brand-teal bg-clip-text text-transparent dark:from-brand-purple-light dark:via-brand-violet-light dark:to-brand-teal-light;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
-    padding-inline: 0.06em;
   }
-  .dark .marker {
-    background-image: linear-gradient(transparent 60%, rgb(251 177 48 / 0.28) 60%, rgb(251 177 48 / 0.28) 90%, transparent 90%);
-  }
-  /* Torn-paper bottom edge for the order receipt */
-  .receipt {
-    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
-    mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+  /* Soft aurora light; frozen by the reduced-motion rule below */
+  .aurora-blob {
+    @apply absolute animate-drift rounded-full opacity-50 blur-[90px] dark:opacity-25;
   }
 }
 

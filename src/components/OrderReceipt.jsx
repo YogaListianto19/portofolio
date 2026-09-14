@@ -9,53 +9,49 @@ const TAG_TONE = {
     done: TONES.pink.text,
 };
 
-const Dashed = () => <div aria-hidden="true" className="my-4 border-t border-dashed border-stone-400 dark:border-stone-600" />;
+const Dashed = () => <div aria-hidden="true" className="my-4 border-t border-dashed border-ink/20 dark:border-white/15" />;
 
-// The hero "nota": one illustrative run of the WhatsApp → LLM → ERP order agent, printed as a receipt.
+// The hero "nota": one illustrative run of the WhatsApp → LLM → ERP order agent, on a frosted panel.
+// The panel stays mostly opaque (white/85) so the coloured tags keep AA contrast over the aurora.
 export default function OrderReceipt() {
     return (
         <figure>
-            <div className="drop-shadow-[0_14px_22px_rgba(22,21,18,0.12)] dark:drop-shadow-none">
-                <div className="receipt bg-white px-5 pb-10 pt-6 font-mono text-[12.5px] leading-relaxed text-stone-800 sm:px-6 dark:bg-night-raised dark:text-stone-200">
-                    <div className="text-center">
-                        <p className="text-[13px] font-medium uppercase tracking-[0.2em]">{r.title}</p>
+            <div className="rounded-2xl border border-white/80 bg-white/85 p-5 font-mono text-[12.5px] leading-relaxed text-stone-800 shadow-panel ring-1 ring-brand-purple/10 backdrop-blur-xl sm:p-6 dark:border-white/10 dark:bg-night-raised/80 dark:text-stone-200 dark:ring-white/5">
+                <div className="flex items-start justify-between gap-3">
+                    <div>
+                        <p className="text-[12px] font-semibold uppercase tracking-[0.16em]">{r.title}</p>
                         <p className="mt-1 text-[11px] text-stone-600 dark:text-stone-400">{r.subtitle}</p>
                     </div>
-
-                    <Dashed />
-
-                    <ol className="space-y-2">
-                        {r.log.map((line, i) => (
-                            <li key={i} className="flex gap-3">
-                                <span className={`w-9 shrink-0 font-medium ${TAG_TONE[line.tag] ?? "text-stone-600 dark:text-stone-400"}`}>
-                                    {line.tag}
-                                </span>
-                                <span>{line.text}</span>
-                            </li>
-                        ))}
-                    </ol>
-
-                    <Dashed />
-
-                    <dl className="space-y-1">
-                        {r.parsed.map((row) => (
-                            <div key={row.k} className="flex justify-between gap-4">
-                                <dt className="text-stone-600 dark:text-stone-400">{row.k}</dt>
-                                <dd className="text-right font-medium">{row.v}</dd>
-                            </div>
-                        ))}
-                    </dl>
-
-                    <Dashed />
-
-                    <p className="text-center text-[11px] uppercase tracking-[0.2em] text-stone-600 dark:text-stone-400">
-                        {r.footer}
-                    </p>
+                    <span className="shrink-0 rounded-full bg-brand-green/15 px-2.5 py-1 font-sans text-[11px] font-semibold text-[#08664F] dark:text-brand-green-light">
+                        {r.status}
+                    </span>
                 </div>
+
+                <Dashed />
+
+                <ol className="space-y-2">
+                    {r.log.map((line, i) => (
+                        <li key={i} className="flex gap-3">
+                            <span className={`w-9 shrink-0 font-semibold ${TAG_TONE[line.tag] ?? "text-stone-600 dark:text-stone-400"}`}>
+                                {line.tag}
+                            </span>
+                            <span>{line.text}</span>
+                        </li>
+                    ))}
+                </ol>
+
+                <Dashed />
+
+                <dl className="space-y-1">
+                    {r.parsed.map((row) => (
+                        <div key={row.k} className="flex justify-between gap-4">
+                            <dt className="text-stone-600 dark:text-stone-400">{row.k}</dt>
+                            <dd className="text-right font-semibold">{row.v}</dd>
+                        </div>
+                    ))}
+                </dl>
             </div>
-            <figcaption className="mt-4 font-serif text-[15px] italic leading-snug text-stone-600 dark:text-stone-400">
-                {r.caption}
-            </figcaption>
+            <figcaption className="muted mt-4 text-sm leading-snug">{r.caption}</figcaption>
         </figure>
     );
 }

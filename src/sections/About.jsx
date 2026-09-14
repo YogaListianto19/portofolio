@@ -16,7 +16,7 @@ export default function About() {
                     <Reveal className="lg:col-span-3">
                         <figure>
                             {avatarFailed ? (
-                                <div className="grid aspect-[4/5] w-full place-items-center bg-paper-deep font-serif text-6xl dark:bg-night-raised">
+                                <div className="grid aspect-[4/5] w-full place-items-center rounded-3xl bg-brand-purple/10 font-display text-6xl font-semibold text-brand-purple">
                                     YL
                                 </div>
                             ) : (
@@ -27,7 +27,7 @@ export default function About() {
                                     height="575"
                                     loading="lazy"
                                     onError={() => setAvatarFailed(true)}
-                                    className="aspect-[4/5] w-full object-cover object-[30%_center] grayscale"
+                                    className="aspect-[4/5] w-full rounded-3xl object-cover object-[30%_center] shadow-panel ring-1 ring-brand-purple/10"
                                 />
                             )}
                             <figcaption className="label mt-3">
@@ -35,9 +35,9 @@ export default function About() {
                             </figcaption>
                         </figure>
 
-                        <dl className="hairline mt-8 border-t text-sm">
+                        <dl className="panel mt-6 px-4 py-1 text-sm">
                             {aboutData.facts.map((f) => (
-                                <div key={f.label} className="hairline flex justify-between gap-4 border-b py-3">
+                                <div key={f.label} className="hairline flex justify-between gap-4 border-b py-3 last:border-b-0">
                                     <dt className="muted">{f.label}</dt>
                                     <dd className="text-right font-medium">{f.value}</dd>
                                 </div>
@@ -52,7 +52,7 @@ export default function About() {
                                     key={i}
                                     className={
                                         i === 0
-                                            ? "first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-serif first-letter:text-[4.4rem] first-letter:leading-[0.8] first-letter:text-accent dark:first-letter:text-accent-bright"
+                                            ? "first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-display first-letter:text-[4rem] first-letter:font-semibold first-letter:leading-[0.85] first-letter:text-accent dark:first-letter:text-accent-bright"
                                             : ""
                                     }
                                 >
@@ -61,16 +61,19 @@ export default function About() {
                             ))}
                         </div>
 
-                        <blockquote className="my-12 border-l-[3px] border-brand-teal pl-6 dark:border-brand-teal-light">
-                            <p className="font-serif text-2xl italic leading-snug sm:text-3xl">{aboutData.quote.text}</p>
-                            <footer className="label mt-3">— {aboutData.quote.cite}</footer>
+                        <blockquote className="panel my-12 p-6 sm:p-8">
+                            <span aria-hidden="true" className="block h-1 w-10 rounded-full bg-gradient-to-r from-brand-purple to-brand-teal" />
+                            <p className="mt-5 font-display text-2xl font-medium leading-snug tracking-[-0.02em] sm:text-[1.75rem]">
+                                {aboutData.quote.text}
+                            </p>
+                            <footer className="label mt-4">— {aboutData.quote.cite}</footer>
                         </blockquote>
 
                         <h3 className="text-2xl">Yang bisa Anda harapkan</h3>
                         <ul className="hairline mt-4 grid border-t sm:grid-cols-2 sm:gap-x-8">
                             {aboutData.highlights.map((item, i) => (
                                 <li key={item} className="hairline flex gap-3 border-b py-3 text-[15px] leading-relaxed">
-                                    <span aria-hidden="true" className={`mt-2 h-2 w-2 shrink-0 ${toneAt(i).bg}`} />
+                                    <span aria-hidden="true" className={`mt-2 h-2 w-2 shrink-0 rounded-full ${toneAt(i).bg}`} />
                                     {item}
                                 </li>
                             ))}
