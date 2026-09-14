@@ -1,63 +1,45 @@
-import { motion } from "framer-motion";
-import { experienceData } from "../data/portfolio";
-import { Calendar, Briefcase } from "lucide-react";
+import { experience } from "../data/portfolio";
+import Reveal from "../components/Reveal";
 
 export default function Experience() {
     return (
-        <section id="experience" className="py-20 bg-white dark:bg-secondary">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Professional Journey</h2>
-                </div>
+        <section id="experience" className="border-y border-zinc-200 bg-white py-20 sm:py-24 dark:border-zinc-800 dark:bg-zinc-900/40">
+            <div className="container-page">
+                <Reveal>
+                    <p className="eyebrow">Experience</p>
+                    <h2 className="section-title mt-3">Where I've been shipping</h2>
+                </Reveal>
 
-                <div className="relative">
-                    {/* Vertical Line */}
-                    <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-800 -translate-x-1/2 hidden lg:block" />
-                    <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-800 lg:hidden" />
-
-                    <div className="space-y-12">
-                        {experienceData.map((exp, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5 }}
-                                className={`relative flex flex-col lg:flex-row gap-8 ${index % 2 === 0 ? "lg:flex-row-reverse" : ""
-                                    }`}
-                            >
-                                {/* Timeline Dot */}
-                                <div className="absolute left-8 lg:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-secondary -translate-x-1/2 mt-1.5 z-10" />
-
-                                {/* Content */}
-                                <div className="flex-1 lg:w-1/2 ml-16 lg:ml-0">
-                                    <div className={`bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300 ${index % 2 === 0 ? "lg:mr-8" : "lg:ml-8"
-                                        }`}>
-                                        <div className="flex flex-wrap items-center gap-4 mb-4">
-                                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                                                <Calendar className="w-3.5 h-3.5" />
-                                                {exp.year}
-                                            </span>
-                                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
-                                                <Briefcase className="w-3.5 h-3.5" />
-                                                {exp.company}
-                                            </span>
-                                        </div>
-                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                                            {exp.role}
-                                        </h3>
-                                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
-                                            {exp.description}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Empty Space for Grid alignment */}
-                                <div className="hidden lg:block lg:w-1/2" />
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
+                <ol className="relative mt-12 space-y-10 border-l border-zinc-200 pl-6 sm:pl-8 dark:border-zinc-800">
+                    {experience.map((exp, i) => (
+                        <li key={exp.company + exp.period} className="relative">
+                            <span
+                                aria-hidden="true"
+                                className={`absolute -left-[31px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white sm:-left-[39px] dark:border-zinc-950 ${i === 0 ? "bg-brand-600" : "bg-zinc-400 dark:bg-zinc-600"}`}
+                            />
+                            <Reveal>
+                                <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">{exp.period}</p>
+                                <h3 className="mt-1 text-xl font-bold text-zinc-900 dark:text-white">{exp.role}</h3>
+                                <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400">{exp.company}</p>
+                                <ul className="mt-4 max-w-3xl space-y-2">
+                                    {exp.points.map((pt) => (
+                                        <li key={pt} className="flex gap-2.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-500" />
+                                            <span>{pt}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                {exp.tags?.length > 0 && (
+                                    <ul className="mt-4 flex flex-wrap gap-1.5">
+                                        {exp.tags.map((t) => (
+                                            <li key={t} className="chip">{t}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </Reveal>
+                        </li>
+                    ))}
+                </ol>
             </div>
         </section>
     );

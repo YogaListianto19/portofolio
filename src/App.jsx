@@ -1,21 +1,31 @@
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
+import Services from "./sections/Services";
+import Projects from "./sections/Projects";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Experience from "./sections/Experience";
-import Projects from "./sections/Projects";
+import Process from "./sections/Process";
 import Footer from "./sections/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans selection:bg-primary/30">
+    <div className="min-h-screen font-sans selection:bg-brand-500/25">
+      <a
+        href="#work"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-900"
+      >
+        Skip to work
+      </a>
       <Navbar />
       <main>
         <Hero />
+        <Services />
+        <Projects />
         <About />
         <Skills />
         <Experience />
-        <Projects />
+        <Process />
       </main>
       <Footer />
     </div>

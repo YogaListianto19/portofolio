@@ -1,16 +1,39 @@
-# React + Vite
+# Yoga Listianto — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal site of a Full Stack & AI Engineer who designs, builds, and ships products end to end: LLM agents, SaaS web apps, WhatsApp automation, and ERP (Odoo) integrations.
 
-Currently, two official plugins are available:
+**Live:** https://yogalistianto19.github.io/portofolio/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What's inside
 
-## React Compiler
+- **Services**: what I build for clients (AI agents & automation, SaaS & web apps, product design, ERP & integrations)
+- **Case studies**: 12 projects, filterable. Each one covers the problem, my role, what I built, the AI inside, product decisions, and outcome.
+- **About, Skills, Experience, Process**, and a contact section
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Client and employer systems are described without names or data. Project thumbnails are drawn in CSS, not taken from screenshots, so no confidential screens are exposed.
 
-## Expanding the ESLint configuration
+## Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React 19 · Vite 7 · Tailwind CSS 3 · Framer Motion · Lucide icons. Deployed to GitHub Pages.
+
+Design notes:
+- Monochrome zinc base with a single blue accent
+- Fonts: Archivo (headings), Space Grotesk (body), JetBrains Mono (labels)
+- Light and dark themes: the site follows the system setting, and you can switch manually
+- Honours `prefers-reduced-motion`
+- Keyboard-accessible case-study dialog (Esc closes it, focus is restored)
+
+## Editing content
+
+All copy lives in [`src/data/portfolio.js`](src/data/portfolio.js). That includes the profile, stats, services, projects, skills, experience, process, and contact details. Sections only render what that file contains.
+
+To add a case study, append an object to `projects`. The illustrative thumbnail is set with `visual.kind`, which is one of `chat`, `dashboard`, `flow`, `invite`, `ledger`, `mobile`.
+
+## Run & deploy
+
+```bash
+npm install
+npm run dev      # http://localhost:5173/portofolio/
+npm run lint
+npm run deploy   # builds and publishes dist/ to the gh-pages branch
+```
