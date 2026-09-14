@@ -1,41 +1,35 @@
-import { experience } from "../data/portfolio";
+import { experience, sections } from "../data/portfolio";
 import Reveal from "../components/Reveal";
+import SectionHeader from "../components/SectionHeader";
+import { toneAt } from "../components/tones";
 
 export default function Experience() {
     return (
-        <section id="experience" className="border-y border-zinc-200 bg-white py-20 sm:py-24 dark:border-zinc-800 dark:bg-zinc-900/40">
+        <section id="pengalaman" aria-labelledby="pengalaman-title" className="py-20 sm:py-28">
             <div className="container-page">
-                <Reveal>
-                    <p className="eyebrow">Experience</p>
-                    <h2 className="section-title mt-3">Where I've been shipping</h2>
-                </Reveal>
+                <SectionHeader id="pengalaman-title" {...sections.experience} />
 
-                <ol className="relative mt-12 space-y-10 border-l border-zinc-200 pl-6 sm:pl-8 dark:border-zinc-800">
+                <ol className="mt-12">
                     {experience.map((exp, i) => (
-                        <li key={exp.company + exp.period} className="relative">
-                            <span
-                                aria-hidden="true"
-                                className={`absolute -left-[31px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white sm:-left-[39px] dark:border-zinc-950 ${i === 0 ? "bg-brand-600" : "bg-zinc-400 dark:bg-zinc-600"}`}
-                            />
-                            <Reveal>
-                                <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">{exp.period}</p>
-                                <h3 className="mt-1 text-xl font-bold text-zinc-900 dark:text-white">{exp.role}</h3>
-                                <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400">{exp.company}</p>
-                                <ul className="mt-4 max-w-3xl space-y-2">
+                        <li key={exp.company + exp.period} className="hairline grid gap-4 border-t py-10 first:border-t-0 first:pt-2 lg:grid-cols-12 lg:gap-10">
+                            <div className="lg:col-span-3">
+                                <p className="flex items-center gap-2 text-sm font-semibold tabular-nums">
+                                    <span aria-hidden="true" className={`h-2 w-2 shrink-0 ${toneAt(i).bg}`} />
+                                    {exp.period}
+                                </p>
+                                <p className="muted mt-1 text-sm">{exp.company}</p>
+                            </div>
+                            <Reveal className="lg:col-span-9">
+                                <h3 className="text-2xl leading-tight sm:text-3xl">{exp.role}</h3>
+                                <ul className="mt-5 max-w-3xl space-y-3">
                                     {exp.points.map((pt) => (
-                                        <li key={pt} className="flex gap-2.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-500" />
+                                        <li key={pt} className="flex gap-3 text-[16px] leading-relaxed text-stone-700 dark:text-stone-300">
+                                            <span aria-hidden="true" className="mt-[13px] h-px w-4 shrink-0 bg-ink/50 dark:bg-stone-100/50" />
                                             <span>{pt}</span>
                                         </li>
                                     ))}
                                 </ul>
-                                {exp.tags?.length > 0 && (
-                                    <ul className="mt-4 flex flex-wrap gap-1.5">
-                                        {exp.tags.map((t) => (
-                                            <li key={t} className="chip">{t}</li>
-                                        ))}
-                                    </ul>
-                                )}
+                                {exp.tags?.length > 0 && <p className="muted mt-5 text-sm">{exp.tags.join(" · ")}</p>}
                             </Reveal>
                         </li>
                     ))}

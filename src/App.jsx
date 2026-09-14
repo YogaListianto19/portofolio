@@ -10,12 +10,12 @@ import Footer from "./sections/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen font-sans selection:bg-brand-500/25">
+    <div className="min-h-screen">
       <a
-        href="#work"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-900"
+        href="#karya"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-paper"
       >
-        Skip to work
+        Langsung ke karya
       </a>
       <Navbar />
       <main>

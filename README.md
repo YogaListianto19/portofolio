@@ -1,39 +1,45 @@
-# Yoga Listianto — Portfolio
+# Portofolio Yoga Listianto
 
-Personal site of a Full Stack & AI Engineer who designs, builds, and ships products end to end: LLM agents, SaaS web apps, WhatsApp automation, and ERP (Odoo) integrations.
+Situs pribadi seorang Full Stack & AI Engineer yang merancang dan membangun produk digital dari ide sampai production. Karyanya meliputi AI agent, aplikasi SaaS, otomasi WhatsApp, dan integrasi ERP (Odoo).
 
 **Live:** https://yogalistianto19.github.io/portofolio/
 
-## What's inside
+## Isi situs
 
-- **Services**: what I build for clients (AI agents & automation, SaaS & web apps, product design, ERP & integrations)
-- **Case studies**: 12 projects, filterable. Each one covers the problem, my role, what I built, the AI inside, product decisions, and outcome.
-- **About, Skills, Experience, Process**, and a contact section
+- **Layanan**: empat hal yang bisa saya bangun untuk klien.
+- **Karya**: tiga studi kasus unggulan, ditambah indeks 12 proyek yang bisa difilter. Setiap proyek punya panel detail berisi masalah, peran, apa yang dibangun, AI yang dipakai, keputusan produk, dan hasilnya.
+- **Tentang**, **Keahlian**, **Pengalaman**, **Cara kerja**, dan **Kontak**.
 
-Client and employer systems are described without names or data. Project thumbnails are drawn in CSS, not taken from screenshots, so no confidential screens are exposed.
+Sistem milik klien dan perusahaan ditulis tanpa nama maupun data asli. Contoh order di hero memakai produk samaran, dan gambar proyek berupa ilustrasi SVG, bukan screenshot.
+
+## Desain
+
+Gaya editorial ala majalah (Swiss grid 12 kolom):
+
+- Latar kertas hangat, tinta hitam, dan satu warna aksen oranye bata.
+- Font: Libre Bodoni untuk judul, Public Sans untuk teks, JetBrains Mono untuk nota.
+- Tema terang dan gelap mengikuti pengaturan sistem, dan bisa diganti manual.
+- Menghormati `prefers-reduced-motion`.
+- Panel detail proyek bisa dioperasikan dengan keyboard: Esc untuk menutup, dan fokus dikembalikan ke elemen sebelumnya.
 
 ## Stack
 
-React 19 · Vite 7 · Tailwind CSS 3 · Framer Motion · Lucide icons. Deployed to GitHub Pages.
+React 19 · Vite 7 · Tailwind CSS 3 · Framer Motion · Lucide. Di-deploy ke GitHub Pages.
 
-Design notes:
-- Monochrome zinc base with a single blue accent
-- Fonts: Archivo (headings), Space Grotesk (body), JetBrains Mono (labels)
-- Light and dark themes: the site follows the system setting, and you can switch manually
-- Honours `prefers-reduced-motion`
-- Keyboard-accessible case-study dialog (Esc closes it, focus is restored)
+## Mengubah konten
 
-## Editing content
+Semua teks ada di [`src/data/portfolio.js`](src/data/portfolio.js): profil, statistik, layanan, proyek, keahlian, pengalaman, cara kerja, dan kontak.
 
-All copy lives in [`src/data/portfolio.js`](src/data/portfolio.js). That includes the profile, stats, services, projects, skills, experience, process, and contact details. Sections only render what that file contains.
+Untuk menambah proyek, tambahkan satu objek ke `projects`:
 
-To add a case study, append an object to `projects`. The illustrative thumbnail is set with `visual.kind`, which is one of `chat`, `dashboard`, `flow`, `invite`, `ledger`, `mobile`.
+- Isi `featured: true` agar proyek tampil sebagai studi kasus besar.
+- Isi `visual` dengan salah satu nilai berikut: `chat`, `dashboard`, `flow`, `invite`, `ledger`, `mobile`.
 
-## Run & deploy
+## Menjalankan & deploy
 
 ```bash
 npm install
 npm run dev      # http://localhost:5173/portofolio/
 npm run lint
-npm run deploy   # builds and publishes dist/ to the gh-pages branch
+npm run deploy   # build lalu publish dist/ ke branch gh-pages
 ```

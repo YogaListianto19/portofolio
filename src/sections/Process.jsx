@@ -1,50 +1,50 @@
-import { processSteps, engagementModels } from "../data/portfolio";
+import { processSteps, engagementModels, sections } from "../data/portfolio";
 import Reveal from "../components/Reveal";
+import SectionHeader from "../components/SectionHeader";
+import { toneAt } from "../components/tones";
 
 export default function Process() {
     return (
-        <section id="process" className="py-20 sm:py-24">
+        <section id="cara-kerja" aria-labelledby="cara-kerja-title" className="py-20 sm:py-28">
             <div className="container-page">
-                <Reveal>
-                    <p className="eyebrow">How I work</p>
-                    <h2 className="section-title mt-3">Product thinking first, code second</h2>
-                    <p className="section-lead">
-                        You get a partner who asks "why" before "how" — and an AI-accelerated build process that keeps timelines short
-                        without skipping review and testing.
-                    </p>
-                </Reveal>
+                <SectionHeader id="cara-kerja-title" {...sections.process} />
 
-                <ol className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-                    {processSteps.map((step, i) => (
-                        <li key={step.title}>
-                            <Reveal delay={i * 0.05} className="h-full">
-                                <div className="card h-full p-6">
-                                    <span className="font-mono text-sm font-medium text-brand-600 dark:text-brand-400">
-                                        {String(i + 1).padStart(2, "0")}
-                                    </span>
-                                    <h3 className="mt-3 text-lg font-bold text-zinc-900 dark:text-white">{step.title}</h3>
-                                    <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{step.description}</p>
-                                    <p className="mt-4 border-t border-zinc-200 pt-4 text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-                                        <span className="font-semibold text-zinc-700 dark:text-zinc-300">You get: </span>
-                                        {step.output}
-                                    </p>
-                                </div>
-                            </Reveal>
-                        </li>
-                    ))}
-                </ol>
+                <div className="mt-12 lg:grid lg:grid-cols-12 lg:gap-10">
+                    <div className="lg:col-span-9 lg:col-start-4">
+                        <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-4">
+                            {processSteps.map((step, i) => (
+                                <li key={step.title}>
+                                    <Reveal delay={i * 0.05}>
+                                        <p className={`border-t border-ink pt-4 font-serif text-5xl leading-none dark:border-stone-100 ${toneAt(i).text}`}>
+                                            {i + 1}
+                                        </p>
+                                        <h3 className="mt-4 text-xl">{step.title}</h3>
+                                        <p className="muted mt-2 text-[15px] leading-relaxed">{step.description}</p>
+                                        <p className="mt-4 text-sm leading-relaxed">
+                                            <span className="font-semibold">Anda dapat: </span>
+                                            <span className="muted">{step.output}</span>
+                                        </p>
+                                    </Reveal>
+                                </li>
+                            ))}
+                        </ol>
 
-                <Reveal className="mt-16">
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Ways to work together</h3>
-                    <div className="mt-6 grid gap-5 md:grid-cols-3">
-                        {engagementModels.map((m) => (
-                            <div key={m.title} className="rounded-2xl border border-dashed border-zinc-300 p-6 dark:border-zinc-700">
-                                <p className="font-heading text-base font-bold text-zinc-900 dark:text-white">{m.title}</p>
-                                <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{m.description}</p>
-                            </div>
-                        ))}
+                        <Reveal className="mt-20">
+                            <h3 className="text-2xl sm:text-3xl">Bentuk kerja sama</h3>
+                            <ul className="hairline mt-6 grid border-t md:grid-cols-3">
+                                {engagementModels.map((m, i) => (
+                                    <li key={m.title} className="hairline border-b py-6 md:border-b-0 md:pr-6 md:[&:not(:first-child)]:border-l md:[&:not(:first-child)]:pl-6">
+                                        <p className="flex items-center gap-2.5 font-serif text-xl">
+                                            <span aria-hidden="true" className={`h-2 w-2 shrink-0 ${toneAt(i + 1).bg}`} />
+                                            {m.title}
+                                        </p>
+                                        <p className="muted mt-2 text-[15px] leading-relaxed">{m.description}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </Reveal>
                     </div>
-                </Reveal>
+                </div>
             </div>
         </section>
     );

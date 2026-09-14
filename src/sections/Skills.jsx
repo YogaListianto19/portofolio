@@ -1,37 +1,27 @@
-import { skillGroups } from "../data/portfolio";
+import { skillGroups, sections } from "../data/portfolio";
 import Reveal from "../components/Reveal";
+import SectionHeader from "../components/SectionHeader";
+import { toneAt } from "../components/tones";
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-20 sm:py-24">
+        <section id="keahlian" aria-labelledby="keahlian-title" className="py-20 sm:py-28">
             <div className="container-page">
-                <Reveal>
-                    <p className="eyebrow">Toolbox</p>
-                    <h2 className="section-title mt-3">Skills I use to ship</h2>
-                    <p className="section-lead">
-                        Grouped by what they help me deliver — not by percentage bars.
-                    </p>
-                </Reveal>
+                <SectionHeader id="keahlian-title" {...sections.skills} />
 
-                <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                    {skillGroups.map((g, i) => {
-                        const Icon = g.icon;
-                        return (
-                            <Reveal key={g.title} delay={i * 0.04}>
-                                <div className="card h-full p-6">
-                                    <div className="flex items-center gap-3">
-                                        <Icon className="h-5 w-5 text-brand-600 dark:text-brand-400" />
-                                        <h3 className="text-base font-bold text-zinc-900 dark:text-white">{g.title}</h3>
-                                    </div>
-                                    <ul className="mt-4 flex flex-wrap gap-1.5">
-                                        {g.items.map((item) => (
-                                            <li key={item} className="chip !text-xs">{item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
+                <div className="mt-12 lg:grid lg:grid-cols-12 lg:gap-10">
+                    <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:col-span-9 lg:col-start-4 xl:grid-cols-3">
+                        {skillGroups.map((g, i) => (
+                            <Reveal key={g.title} delay={(i % 3) * 0.04}>
+                                <h3 className={`border-t-[3px] pt-4 text-xl ${toneAt(i).border}`}>{g.title}</h3>
+                                <ul className="muted mt-3 space-y-1.5 text-[15px]">
+                                    {g.items.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
                             </Reveal>
-                        );
-                    })}
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

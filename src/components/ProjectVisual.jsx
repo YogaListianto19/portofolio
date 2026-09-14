@@ -1,171 +1,168 @@
-// Illustrative UI thumbnails drawn in CSS — used instead of screenshots so that
-// client/internal systems are represented without exposing real data.
+import { TONES } from "./tones";
 
-const ACCENTS = {
-    blue: { solid: "bg-blue-500", soft: "bg-blue-500/15", text: "text-blue-500", ring: "ring-blue-500/30" },
-    emerald: { solid: "bg-emerald-500", soft: "bg-emerald-500/15", text: "text-emerald-500", ring: "ring-emerald-500/30" },
-    rose: { solid: "bg-rose-500", soft: "bg-rose-500/15", text: "text-rose-500", ring: "ring-rose-500/30" },
-    amber: { solid: "bg-amber-500", soft: "bg-amber-500/15", text: "text-amber-500", ring: "ring-amber-500/30" },
-    violet: { solid: "bg-violet-500", soft: "bg-violet-500/15", text: "text-violet-500", ring: "ring-violet-500/30" },
-    cyan: { solid: "bg-cyan-500", soft: "bg-cyan-500/15", text: "text-cyan-500", ring: "ring-cyan-500/30" },
+// Illustrative UI thumbnails drawn as SVG (so they scale to any size) — stand-ins for
+// screenshots, so client/internal systems are shown without exposing real data.
+// `tone` picks the Odoo accent (by project category).
+
+const BASE = {
+    paper: "fill-white dark:fill-night-raised",
+    frame: "stroke-ink/15 dark:stroke-stone-100/15",
+    line: "fill-stone-300 dark:fill-stone-700",
+    fill: "fill-stone-200 dark:fill-stone-800",
+    strong: "fill-stone-400 dark:fill-stone-600",
+    outline: "fill-none stroke-ink/15 dark:stroke-stone-100/15",
 };
 
-const Line = ({ w = "w-full", className = "" }) => (
-    <div className={`h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700 ${w} ${className}`} />
-);
+const Bar = ({ x, y, w, h = 4, className = BASE.line }) => <rect x={x} y={y} width={w} height={h} rx={h / 2} className={className} />;
 
-function Chat({ a }) {
+function Chat({ c }) {
     return (
-        <div className="flex h-full flex-col gap-2 p-3">
-            <div className="max-w-[70%] rounded-xl rounded-tl-sm bg-zinc-200 p-2 dark:bg-zinc-800">
-                <Line w="w-24" />
-                <Line w="w-16" className="mt-1.5" />
-            </div>
-            <div className={`ml-auto max-w-[75%] rounded-xl rounded-tr-sm p-2 ${a.soft}`}>
-                <div className={`mb-1.5 h-1.5 w-8 rounded-full ${a.solid}`} />
-                <Line w="w-28" />
-                <Line w="w-20" className="mt-1.5" />
-            </div>
-            <div className="max-w-[60%] rounded-xl rounded-tl-sm bg-zinc-200 p-2 dark:bg-zinc-800">
-                <Line w="w-20" />
-            </div>
-            <div className="mt-auto flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-2 py-1.5 dark:border-zinc-700 dark:bg-zinc-900">
-                <Line w="w-full" />
-                <div className={`h-4 w-4 shrink-0 rounded-full ${a.solid}`} />
-            </div>
-        </div>
+        <g>
+            <rect x="36" y="48" width="140" height="30" rx="8" className={c.fill} />
+            <Bar x="46" y="56" w="100" />
+            <Bar x="46" y="66" w="70" />
+            <rect x="150" y="86" width="134" height="40" rx="8" className={c.soft} />
+            <Bar x="160" y="94" w="30" className={c.accent} />
+            <Bar x="160" y="104" w="110" />
+            <Bar x="160" y="114" w="80" />
+            <rect x="36" y="134" width="110" height="22" rx="8" className={c.fill} />
+            <Bar x="46" y="143" w="80" />
+            <rect x="36" y="168" width="248" height="22" rx="11" className={`${c.paper} ${c.frame}`} />
+            <Bar x="50" y="177" w="190" />
+            <circle cx="270" cy="179" r="6" className={c.accent} />
+        </g>
     );
 }
 
-function Dashboard({ a }) {
+function Dashboard({ c }) {
     const bars = [40, 65, 50, 80, 58, 92, 70];
     return (
-        <div className="flex h-full">
-            <div className="w-10 space-y-2 border-r border-zinc-200 p-2 dark:border-zinc-800">
-                <div className={`h-4 w-4 rounded ${a.solid}`} />
-                {[0, 1, 2, 3].map((i) => (
-                    <div key={i} className="h-1.5 w-5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
-                ))}
-            </div>
-            <div className="flex-1 p-3">
-                <div className="grid grid-cols-3 gap-1.5">
-                    {[0, 1, 2].map((i) => (
-                        <div key={i} className="rounded-md border border-zinc-200 p-1.5 dark:border-zinc-800">
-                            <Line w="w-6" />
-                            <div className={`mt-1.5 h-2 w-10 rounded-full ${i === 0 ? a.solid : "bg-zinc-400 dark:bg-zinc-600"}`} />
-                        </div>
-                    ))}
-                </div>
-                <div className="mt-3 flex h-16 items-end gap-1.5">
-                    {bars.map((h, i) => (
-                        <div key={i} className={`flex-1 rounded-t ${i === 5 ? a.solid : "bg-zinc-300 dark:bg-zinc-700"}`} style={{ height: `${h}%` }} />
-                    ))}
-                </div>
-            </div>
-        </div>
+        <g>
+            <rect x="68" y="35" width="1" height="165" className="fill-ink/10 dark:fill-stone-100/10" />
+            <rect x="34" y="46" width="18" height="18" rx="4" className={c.accent} />
+            {[76, 88, 100, 112].map((y) => (
+                <Bar key={y} x="34" y={y} w="24" />
+            ))}
+            {[80, 152, 224].map((x, i) => (
+                <g key={x}>
+                    <rect x={x} y="46" width="62" height="38" rx="4" className={c.outline} />
+                    <Bar x={x + 8} y="56" w="24" />
+                    <Bar x={x + 8} y="68" w="40" h="6" className={i === 0 ? c.accent : c.strong} />
+                </g>
+            ))}
+            {bars.map((v, i) => {
+                const h = v * 0.9;
+                return <rect key={i} x={82 + i * 30} y={190 - h} width="22" height={h} rx="2" className={i === 5 ? c.accent : c.line} />;
+            })}
+        </g>
     );
 }
 
-const FlowNode = ({ a, className = "", active }) => (
-    <div className={`absolute flex h-7 w-14 items-center gap-1 rounded-md border bg-white px-1.5 dark:bg-zinc-900 ${active ? `border-transparent ring-2 ${a.ring}` : "border-zinc-200 dark:border-zinc-700"} ${className}`}>
-        <div className={`h-3 w-3 shrink-0 rounded ${active ? a.solid : "bg-zinc-300 dark:bg-zinc-600"}`} />
-        <Line w="w-6" />
-    </div>
+const FlowNode = ({ c, x, y, active }) => (
+    <g>
+        <rect
+            x={x}
+            y={y}
+            width={active ? 64 : 56}
+            height="26"
+            rx="5"
+            className={`${c.paper} ${active ? c.ring : c.frame}`}
+            strokeWidth={active ? 2 : 1}
+        />
+        <rect x={x + 7} y={y + 8} width="10" height="10" rx="2" className={active ? c.accent : c.line} />
+        <Bar x={x + 22} y={y + 11} w="24" />
+    </g>
 );
 
-function Flow({ a }) {
+function Flow({ c }) {
     return (
-        <div className="relative h-full">
-            <svg className="absolute inset-0 h-full w-full text-zinc-300 dark:text-zinc-700" viewBox="0 0 240 150" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M62 40 C 90 40, 90 75, 118 75" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                <path d="M62 110 C 90 110, 90 75, 118 75" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                <path d="M174 75 C 190 75, 190 40, 200 40" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                <path d="M174 75 C 190 75, 190 110, 200 110" stroke="currentColor" strokeWidth="1.5" fill="none" />
-            </svg>
-            <FlowNode a={a} className="left-[4%] top-[18%]" />
-            <FlowNode a={a} className="left-[4%] top-[62%]" />
-            <FlowNode a={a} className="left-[40%] top-[40%] !w-[4.25rem]" active />
-            <FlowNode a={a} className="right-[2%] top-[18%]" />
-            <FlowNode a={a} className="right-[2%] top-[62%]" />
-        </div>
+        <g>
+            <g className="fill-none stroke-stone-300 dark:stroke-stone-700" strokeWidth="1.5">
+                <path d="M96 73 C 114 73, 114 105, 132 105" />
+                <path d="M96 137 C 114 137, 114 105, 132 105" />
+                <path d="M196 105 C 214 105, 214 73, 232 73" />
+                <path d="M196 105 C 214 105, 214 137, 232 137" />
+            </g>
+            <FlowNode c={c} x={40} y={60} />
+            <FlowNode c={c} x={40} y={124} />
+            <FlowNode c={c} x={132} y={92} active />
+            <FlowNode c={c} x={232} y={60} />
+            <FlowNode c={c} x={232} y={124} />
+        </g>
     );
 }
 
-function Invite({ a }) {
+function Invite({ c }) {
     return (
-        <div className="grid h-full place-items-center p-3">
-            <div className="flex h-full w-28 flex-col items-center justify-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 dark:border-zinc-700 dark:bg-zinc-900">
-                <div className={`h-7 w-7 rounded-full ${a.soft} ring-1 ${a.ring}`} />
-                <Line w="w-12" />
-                <div className={`h-2 w-16 rounded-full ${a.solid}`} />
-                <Line w="w-10" />
-                <div className="mt-1 grid w-full grid-cols-2 gap-1">
-                    <div className="h-3 rounded bg-zinc-200 dark:bg-zinc-800" />
-                    <div className={`h-3 rounded ${a.solid}`} />
-                </div>
-            </div>
-        </div>
+        <g>
+            <rect x="110" y="46" width="100" height="146" rx="6" className={`${c.paper} ${c.frame}`} />
+            <circle cx="160" cy="78" r="14" className={`${c.soft} ${c.ring}`} strokeOpacity="0.5" />
+            <Bar x="135" y="102" w="50" />
+            <Bar x="125" y="114" w="70" h="7" className={c.accent} />
+            <Bar x="140" y="129" w="40" />
+            <rect x="122" y="150" width="36" height="14" rx="3" className={c.fill} />
+            <rect x="162" y="150" width="36" height="14" rx="3" className={c.accent} />
+        </g>
     );
 }
 
-function Ledger({ a }) {
-    const rows = [1, 0, 1, 1, 0];
+function Ledger({ c }) {
+    const paid = [1, 0, 1, 1, 0];
     return (
-        <div className="h-full p-3">
-            <div className="mb-2 flex items-center justify-between">
-                <Line w="w-16" />
-                <div className={`h-3 w-10 rounded ${a.solid}`} />
-            </div>
-            <div className="space-y-1.5">
-                {rows.map((paid, i) => (
-                    <div key={i} className="flex items-center gap-2 rounded-md border border-zinc-200 px-2 py-1.5 dark:border-zinc-800">
-                        <div className="h-3 w-3 rounded-full bg-zinc-300 dark:bg-zinc-700" />
-                        <Line w="w-16" />
-                        <div className="flex-1" />
-                        <div className={`h-2.5 w-9 rounded-full ${paid ? a.soft : "bg-zinc-200 dark:bg-zinc-800"}`} />
-                    </div>
-                ))}
-            </div>
-        </div>
+        <g>
+            <Bar x="40" y="50" w="70" h="5" />
+            <rect x="236" y="45" width="44" height="14" rx="3" className={c.accent} />
+            {paid.map((p, i) => {
+                const y = 70 + i * 24;
+                return (
+                    <g key={i}>
+                        <rect x="40" y={y} width="240" height="18" rx="4" className={c.outline} />
+                        <circle cx="52" cy={y + 9} r="4" className={c.line} />
+                        <Bar x="62" y={y + 7} w="70" />
+                        <Bar x="240" y={y + 5} w="32" h="8" className={p ? c.soft : c.fill} />
+                    </g>
+                );
+            })}
+        </g>
     );
 }
 
-function Mobile({ a }) {
+function Mobile({ c }) {
     return (
-        <div className="grid h-full place-items-center">
-            <div className="h-[88%] w-24 rounded-2xl border-4 border-zinc-800 bg-white p-1.5 dark:border-zinc-600 dark:bg-zinc-900">
-                <div className={`mb-1.5 h-6 rounded-md ${a.solid}`} />
-                <div className="space-y-1">
-                    {[0, 1, 2, 3].map((i) => (
-                        <div key={i} className="flex items-center gap-1 rounded bg-zinc-100 p-1 dark:bg-zinc-800">
-                            <div className={`h-2.5 w-2.5 rounded-full ${i === 0 ? a.solid : "bg-zinc-300 dark:bg-zinc-600"}`} />
-                            <Line w="w-10" />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+        <g>
+            <rect x="128" y="40" width="64" height="150" rx="10" className={`${c.paper} stroke-ink/70 dark:stroke-stone-400`} strokeWidth="4" />
+            <rect x="136" y="52" width="48" height="18" rx="4" className={c.accent} />
+            {[0, 1, 2, 3].map((i) => {
+                const y = 78 + i * 22;
+                return (
+                    <g key={i}>
+                        <rect x="136" y={y} width="48" height="16" rx="3" className={c.fill} />
+                        <circle cx="144" cy={y + 8} r="3" className={i === 0 ? c.accent : c.line} />
+                        <Bar x="151" y={y + 6} w="26" />
+                    </g>
+                );
+            })}
+        </g>
     );
 }
 
 const KINDS = { chat: Chat, dashboard: Dashboard, flow: Flow, invite: Invite, ledger: Ledger, mobile: Mobile };
 
-export default function ProjectVisual({ kind = "dashboard", accent = "blue", className = "" }) {
-    const a = ACCENTS[accent] ?? ACCENTS.blue;
+export default function ProjectVisual({ kind = "dashboard", tone = "purple", className = "" }) {
     const Kind = KINDS[kind] ?? Dashboard;
+    const t = TONES[tone] ?? TONES.purple;
+    const c = { ...BASE, accent: t.fill, soft: t.fillSoft, ring: t.stroke };
 
     return (
-        <div aria-hidden="true" className={`grid-bg relative overflow-hidden bg-zinc-100 dark:bg-zinc-900/60 ${className}`}>
-            <div className="absolute inset-x-6 bottom-0 top-6 overflow-hidden rounded-t-xl border border-b-0 border-zinc-200 bg-zinc-50 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-                <div className="flex items-center gap-1 border-b border-zinc-200 px-2.5 py-1.5 dark:border-zinc-800">
-                    <span className="h-1.5 w-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
-                    <span className={`h-1.5 w-1.5 rounded-full ${a.solid}`} />
-                </div>
-                <div className="h-[calc(100%-1.5rem)]">
-                    <Kind a={a} />
-                </div>
-            </div>
+        <div aria-hidden="true" className={`overflow-hidden ${t.tint} ${className}`}>
+            <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" className="block h-full w-full">
+                <rect x="24" y="20" width="272" height="200" rx="6" className={`${c.paper} ${c.frame}`} />
+                <rect x="24" y="34" width="272" height="1" className="fill-ink/10 dark:fill-stone-100/10" />
+                <circle cx="35" cy="27" r="2.2" className={c.line} />
+                <circle cx="43" cy="27" r="2.2" className={c.line} />
+                <circle cx="51" cy="27" r="2.2" className={c.accent} />
+                <Kind c={c} />
+            </svg>
         </div>
     );
 }

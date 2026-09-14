@@ -7,40 +7,28 @@ export default {
     darkMode: "class",
     theme: {
         extend: {
+            // Odoo-inspired palette: aubergine purple as the primary, plus Odoo's
+            // teal / pink / green / yellow as small accents on a near-white page.
             colors: {
-                // Monochrome zinc base + a single blue accent (ui-ux-pro-max: "Monochrome + blue accent")
+                paper: { DEFAULT: "#FCFBFC", deep: "#F3EEF2" },
+                ink: { DEFAULT: "#1F1A1E", soft: "#2B2529" },
+                night: { DEFAULT: "#17141A", raised: "#221E25" },
+                accent: { DEFAULT: "#714B67", bright: "#D1A6C6" },
                 brand: {
-                    50: "#EFF6FF",
-                    100: "#DBEAFE",
-                    200: "#BFDBFE",
-                    300: "#93C5FD",
-                    400: "#60A5FA",
-                    500: "#3B82F6",
-                    600: "#2563EB",
-                    700: "#1D4ED8",
+                    purple: { DEFAULT: "#714B67", light: "#D1A6C6" },
+                    teal: { DEFAULT: "#017E84", light: "#4FD1D5" },
+                    pink: { DEFAULT: "#E46E78", text: "#B8405A", light: "#F29AA2" },
+                    green: { DEFAULT: "#21B799", text: "#0B7F62", light: "#5FD8B8" },
+                    yellow: { DEFAULT: "#FBB130", text: "#8F5B00", light: "#FBC45E" },
                 },
             },
             fontFamily: {
-                heading: ["Archivo", "ui-sans-serif", "system-ui", "sans-serif"],
-                sans: ["'Space Grotesk'", "ui-sans-serif", "system-ui", "sans-serif"],
+                serif: ["'Libre Bodoni'", "Georgia", "'Times New Roman'", "serif"],
+                sans: ["'Public Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
                 mono: ["'JetBrains Mono'", "ui-monospace", "SFMono-Regular", "monospace"],
             },
             maxWidth: {
-                content: "72rem",
-            },
-            keyframes: {
-                "fade-up": {
-                    "0%": { opacity: "0", transform: "translateY(12px)" },
-                    "100%": { opacity: "1", transform: "translateY(0)" },
-                },
-                pulseDot: {
-                    "0%, 100%": { opacity: "1" },
-                    "50%": { opacity: ".35" },
-                },
-            },
-            animation: {
-                "fade-up": "fade-up .5s ease-out both",
-                "pulse-dot": "pulseDot 2s ease-in-out infinite",
+                content: "76rem",
             },
         },
     },

@@ -8,46 +8,56 @@
     scroll-padding-top: 5rem;
   }
   body {
-    @apply bg-zinc-50 text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100;
+    @apply bg-paper font-sans text-ink antialiased dark:bg-night dark:text-stone-100;
   }
   h1, h2, h3, h4 {
-    @apply font-heading tracking-tight;
+    @apply font-serif font-normal;
+    letter-spacing: -0.015em;
   }
   :focus-visible {
-    @apply outline-none ring-2 ring-brand-600 ring-offset-2 ring-offset-zinc-50 dark:ring-brand-400 dark:ring-offset-zinc-950;
+    @apply outline-none ring-2 ring-brand-teal ring-offset-2 ring-offset-paper dark:ring-brand-teal-light dark:ring-offset-night;
+  }
+  ::selection {
+    @apply bg-brand-yellow/40;
   }
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
   }
-  .eyebrow {
-    @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-brand-600 dark:text-brand-400;
+  .label {
+    @apply text-[13px] font-medium text-stone-600 dark:text-stone-400;
   }
-  .section-title {
-    @apply text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-white;
+  .muted {
+    @apply text-stone-600 dark:text-stone-400;
   }
-  .section-lead {
-    @apply mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400;
+  .hairline {
+    @apply border-ink/15 dark:border-stone-100/15;
   }
-  .card {
-    @apply rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900;
-  }
-  .chip {
-    @apply inline-flex items-center rounded-md border border-zinc-200 bg-zinc-50 px-2 py-0.5 font-mono text-[11px] text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-300;
+  .link-u {
+    @apply cursor-pointer underline decoration-ink/30 decoration-1 underline-offset-[6px] transition-colors duration-200 hover:text-accent hover:decoration-accent dark:decoration-stone-100/30 dark:hover:text-accent-bright dark:hover:decoration-accent-bright;
   }
   .btn-primary {
-    @apply inline-flex min-h-[44px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-brand-600 dark:bg-white dark:text-zinc-900 dark:hover:bg-brand-400;
+    @apply inline-flex min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-full bg-brand-purple px-6 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-brand-teal dark:bg-brand-purple-light dark:text-night dark:hover:bg-brand-teal-light;
   }
-  .btn-secondary {
-    @apply inline-flex min-h-[44px] cursor-pointer items-center justify-center gap-2 rounded-lg border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-900 transition-colors duration-200 hover:border-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:hover:border-zinc-400;
+  .btn-line {
+    @apply inline-flex min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-full border border-ink/30 px-6 text-[15px] font-semibold text-ink transition-colors duration-200 hover:border-brand-purple hover:text-brand-purple dark:border-stone-100/30 dark:text-stone-100 dark:hover:border-brand-purple-light dark:hover:text-brand-purple-light;
   }
-  .grid-bg {
-    background-image:
-      linear-gradient(to right, rgb(113 113 122 / 0.12) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(113 113 122 / 0.12) 1px, transparent 1px);
-    background-size: 44px 44px;
+  /* Highlighter stroke behind key words (odoo.com-style) */
+  .marker {
+    background-image: linear-gradient(transparent 60%, rgb(251 177 48 / 0.55) 60%, rgb(251 177 48 / 0.55) 90%, transparent 90%);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding-inline: 0.06em;
+  }
+  .dark .marker {
+    background-image: linear-gradient(transparent 60%, rgb(251 177 48 / 0.28) 60%, rgb(251 177 48 / 0.28) 90%, transparent 90%);
+  }
+  /* Torn-paper bottom edge for the order receipt */
+  .receipt {
+    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
+    mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 14px 100%;
   }
 }
 

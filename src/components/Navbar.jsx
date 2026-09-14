@@ -1,25 +1,28 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Sun, Moon, ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { navLinks, profile } from "../data/portfolio";
+import { toneAt } from "./tones";
 
-const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Work", href: "#work" },
-    { name: "Skills", href: "#skills" },
-    { name: "Experience", href: "#experience" },
-    { name: "Process", href: "#process" },
-];
+const clock = new Intl.DateTimeFormat("id-ID", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Jakarta" });
+const nowInBandung = () => clock.format(new Date());
+const pad = (n) => String(n).padStart(2, "0");
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains("dark"));
+    const [time, setTime] = useState(nowInBandung);
 
     useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 16);
-        handleScroll();
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
+        const onScroll = () => setIsScrolled(window.scrollY > 16);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    useEffect(() => {
+        const id = setInterval(() => setTime(nowInBandung()), 20000);
+        return () => clearInterval(id);
     }, []);
 
     const toggleTheme = () => {
@@ -33,87 +36,79 @@ export default function Navbar() {
         }
     };
 
-    return (
-        <header className="fixed inset-x-0 top-3 z-50 px-3 sm:px-4">
-            <nav
-                aria-label="Primary"
-                className={`mx-auto max-w-content rounded-2xl border transition-colors duration-300 ${isScrolled || isOpen
-                    ? "border-zinc-200 bg-white/85 shadow-sm backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/85"
-                    : "border-transparent bg-transparent"
-                    }`}
-            >
-                <div className="flex h-14 items-center justify-between px-3 sm:px-4">
-                    <a href="#home" className="flex items-center gap-2.5 rounded-lg" aria-label="Back to top">
-                        <span className="grid h-8 w-8 place-items-center rounded-lg bg-zinc-900 font-heading text-sm font-bold text-white dark:bg-white dark:text-zinc-900">
-                            YL
-                        </span>
-                        <span className="font-heading text-base font-bold tracking-tight text-zinc-900 dark:text-white">
-                            Yoga Listianto
-                        </span>
-                    </a>
+    const solid = isScrolled || isOpen;
 
-                    <div className="hidden items-center gap-1 md:flex">
-                        {navLinks.map((link) => (
+    return (
+        <header
+            className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${solid
+                ? "border-ink/15 bg-paper/95 backdrop-blur-sm dark:border-stone-100/15 dark:bg-night/95"
+                : "border-transparent"
+                }`}
+        >
+            <nav aria-label="Navigasi utama" className="container-page flex h-16 items-center justify-between gap-6">
+                <a href="#beranda" className="font-serif text-xl leading-none">
+                    Yoga Listianto
+                </a>
+
+                <ul className="hidden items-center gap-6 lg:flex">
+                    {navLinks.map((link, i) => (
+                        <li key={link.href}>
                             <a
-                                key={link.name}
                                 href={link.href}
-                                className="rounded-md px-3 py-2 text-sm font-medium text-zinc-600 transition-colors duration-200 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                                className="group inline-flex items-baseline gap-1.5 py-2 text-sm font-medium text-stone-700 transition-colors duration-200 hover:text-ink dark:text-stone-300 dark:hover:text-white"
                             >
+                                <span className={`font-mono text-[10px] font-semibold ${toneAt(i).text}`}>{pad(i + 1)}</span>
                                 {link.name}
                             </a>
-                        ))}
-                    </div>
+                        </li>
+                    ))}
+                </ul>
 
-                    <div className="flex items-center gap-1.5">
-                        <button
-                            type="button"
-                            onClick={toggleTheme}
-                            aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-                            className="grid h-10 w-10 cursor-pointer place-items-center rounded-lg text-zinc-600 transition-colors duration-200 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
-                        >
-                            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-                        </button>
-                        <a href="#contact" className="btn-primary hidden !min-h-[40px] !px-4 !py-2 sm:inline-flex">
-                            Hire me
-                            <ArrowUpRight className="h-4 w-4" />
-                        </a>
-                        <button
-                            type="button"
-                            onClick={() => setIsOpen(!isOpen)}
-                            aria-label={isOpen ? "Close menu" : "Open menu"}
-                            aria-expanded={isOpen}
-                            className="grid h-10 w-10 cursor-pointer place-items-center rounded-lg text-zinc-700 hover:bg-zinc-100 md:hidden dark:text-zinc-300 dark:hover:bg-zinc-800"
-                        >
-                            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                        </button>
-                    </div>
+                <div className="flex items-center gap-1 sm:gap-2">
+                    <span className="hidden text-[13px] tabular-nums text-stone-600 xl:inline dark:text-stone-400">
+                        {profile.city}, {time} WIB
+                    </span>
+                    <button
+                        type="button"
+                        onClick={toggleTheme}
+                        aria-label={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
+                        className="grid h-10 w-10 cursor-pointer place-items-center rounded-full text-stone-700 transition-colors duration-200 hover:bg-ink/5 hover:text-ink dark:text-stone-300 dark:hover:bg-white/10 dark:hover:text-white"
+                    >
+                        {isDark ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
+                    </button>
+                    <a href="#kontak" className="btn-primary hidden !min-h-[40px] !px-4 !text-sm sm:inline-flex">
+                        Hubungi saya
+                    </a>
+                    <button
+                        type="button"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label={isOpen ? "Tutup menu" : "Buka menu"}
+                        aria-expanded={isOpen}
+                        className="grid h-10 w-10 cursor-pointer place-items-center rounded-full text-ink hover:bg-ink/5 lg:hidden dark:text-stone-100 dark:hover:bg-white/10"
+                    >
+                        {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                    </button>
                 </div>
-
-                <AnimatePresence>
-                    {isOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden md:hidden"
-                        >
-                            <div className="space-y-1 border-t border-zinc-200 px-3 pb-3 pt-2 dark:border-zinc-800">
-                                {[...navLinks, { name: "Contact", href: "#contact" }].map((link) => (
-                                    <a
-                                        key={link.name}
-                                        href={link.href}
-                                        onClick={() => setIsOpen(false)}
-                                        className="block rounded-lg px-3 py-3 text-base font-medium text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
-                                    >
-                                        {link.name}
-                                    </a>
-                                ))}
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
             </nav>
+
+            {isOpen && (
+                <div className="border-t border-ink/15 lg:hidden dark:border-stone-100/15">
+                    <ul className="container-page py-3">
+                        {[...navLinks, { name: "Kontak", href: "#kontak" }].map((link, i) => (
+                            <li key={link.href} className="border-b border-ink/10 last:border-0 dark:border-stone-100/10">
+                                <a
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="flex items-baseline gap-3 py-3 font-serif text-2xl"
+                                >
+                                    <span className={`font-mono text-xs font-semibold ${toneAt(i).text}`}>{pad(i + 1)}</span>
+                                    {link.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </header>
     );
 }
