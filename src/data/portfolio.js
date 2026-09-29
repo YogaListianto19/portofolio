@@ -7,17 +7,17 @@
 
 export const profile = {
     name: "Yoga Listianto",
-    shortRole: "Full Stack & AI Engineer",
-    roles: ["Full Stack Engineer", "AI Engineer", "Product Designer"],
+    shortRole: "Odoo ERP Engineer",
+    roles: ["Odoo ERP Engineer", "Integrasi & AI", "Full Stack"],
     city: "Bandung",
     location: "Bandung, Indonesia",
     headline: {
-        before: "Merancang & membangun produk digital yang",
+        before: "Bikin Odoo ERP yang",
         highlight: "benar-benar dipakai",
-        after: ".",
+        after: " — plus AI di dalamnya.",
     },
     subheadline:
-        "Full Stack Engineer, AI Engineer, dan Product Designer. Lebih dari 5 tahun saya mengubah alur kerja bisnis yang berantakan menjadi software yang dipakai setiap hari — AI agent di WhatsApp, aplikasi SaaS, dan integrasi ERP yang menggerakkan order dan uang sungguhan.",
+        "Odoo technical engineer dengan 5+ tahun pengalaman di Odoo 10–19: modul kustom, migrasi versi, dan integrasi ke WhatsApp Cloud API serta API bank. Di atasnya saya pasang AI agent dan aplikasi web, supaya ERP-nya benar-benar dipakai tim Anda — bukan cuma terpasang.",
     ctaPrimary: "Lihat studi kasus",
     ctaSecondary: "Mulai proyek",
     avatar: "https://github.com/YogaListianto19.png",
@@ -35,15 +35,15 @@ export const navLinks = [
 export const heroMeta = [
     "Portofolio — Edisi September 2026",
     "Bandung, Indonesia (WIB)",
-    "Full Stack · AI · Produk",
+    "Odoo · Integrasi · AI",
     "Menerima proyek freelance",
 ];
 
 export const stats = [
-    { value: "5+", label: "Tahun membangun software bisnis" },
-    { value: "1.675+", label: "Sales order dibuat oleh AI agent saya" },
+    { value: "5+", label: "Tahun mengerjakan Odoo & sistem bisnis" },
     { value: "10+", label: "Perusahaan memakai sistem buatan saya" },
-    { value: "3", label: "Minggu dari ide sampai SaaS live" },
+    { value: "1.675+", label: "Sales order dibuat oleh AI agent saya" },
+    { value: "v10–19", label: "Rentang versi Odoo yang saya tangani" },
 ];
 
 // Contoh order di hero. Produk disamarkan (hewan qurban) demi kerahasiaan perusahaan.
@@ -71,22 +71,22 @@ export const sections = {
     services: {
         index: "01",
         label: "Layanan",
-        title: "Dari ide sampai",
-        emphasis: "produk yang dipakai orang.",
-        lead: "Saya pegang seluruh prosesnya: memetakan masalah, merancang alur, membangun frontend dan backend, memasang AI di tempat yang memang menguntungkan, lalu merilisnya ke production.",
+        title: "Odoo yang dikerjakan dari",
+        emphasis: "proses bisnisnya.",
+        lead: "Saya pegang seluruh prosesnya: memetakan alur kerja yang sebenarnya, menulis PRD, membangun modul dan integrasinya, memasang AI di tempat yang memang menguntungkan, lalu merilisnya ke production.",
     },
     work: {
         index: "02",
         label: "Karya",
         title: "Studi kasus",
         emphasis: "pilihan.",
-        lead: "Produk yang saya petakan, rancang, dan rilis — dari AI agent di WhatsApp sampai aplikasi SaaS dan integrasi ERP yang menggerakkan uang sungguhan.",
+        lead: "Modul dan integrasi Odoo yang menggerakkan order dan uang sungguhan — plus AI agent dan aplikasi web yang saya bangun di atasnya.",
     },
     about: {
         index: "03",
         label: "Tentang",
-        title: "Engineer yang berpikir seperti",
-        emphasis: "product designer.",
+        title: "Engineer yang paham",
+        emphasis: "proses bisnisnya dulu.",
     },
     skills: {
         index: "04",
@@ -131,39 +131,39 @@ export const aboutData = {
         { label: "Cara kerja", value: "Remote, asinkron" },
     ],
     highlights: [
-        "Menulis PRD, decision record & rencana UAT — bukan cuma kode",
-        "LLM agent dengan guardrail dan konfirmasi manusia",
-        "Next.js / React, Node.js, Python, PostgreSQL",
+        "Odoo 10–19: modul kustom, migrasi versi & data",
         "Integrasi WhatsApp Cloud API & pembayaran bank (SNAP)",
-        "Pengalaman ERP mendalam: Odoo 10 sampai 19",
+        "LLM agent dengan guardrail dan konfirmasi manusia",
+        "Menulis PRD, decision record & rencana UAT — bukan cuma kode",
+        "Aplikasi web pendamping: Next.js / React, Python, PostgreSQL",
         "Rilis cepat dengan alur kerja berbantuan AI",
     ],
 };
 
 export const services = [
     {
-        title: "AI agent & otomasi",
+        title: "Modul kustom & migrasi Odoo",
         description:
-            "Asisten berbasis LLM yang benar-benar bekerja: membaca order, memilah pesan, menjawab dari basis pengetahuan Anda — lengkap dengan ambang keyakinan, log, dan persetujuan manusia di titik yang penting.",
+            "Modul kustom, penyesuaian alur kerja, laporan, dan migrasi versi di Odoo 10–19 (Community & Enterprise) — dikerjakan dari pemahaman proses bisnisnya, bukan cuma dari daftar permintaan fitur.",
+        deliverables: ["Discovery & PRD", "Modul kustom", "Migrasi versi & data", "Laporan QWeb & SQL", "UAT & panduan pengguna"],
+    },
+    {
+        title: "Integrasi ERP",
+        description:
+            "Menyambungkan Odoo ke sistem lain yang dipakai bisnis Anda: WhatsApp Cloud API, API bank (SNAP / virtual account), aplikasi web, dan otomasi antar-sistem lewat REST API maupun n8n.",
+        deliverables: ["WhatsApp Cloud API", "Bank SNAP / VA", "REST & webhook", "JSON-RPC / XML-RPC", "Sinkronisasi data"],
+    },
+    {
+        title: "AI agent di atas ERP",
+        description:
+            "Asisten berbasis LLM yang benar-benar bekerja: membaca order dari chat, memilah pesan, menjawab dari basis pengetahuan Anda — lengkap dengan ambang keyakinan, log, dan konfirmasi manusia sebelum datanya masuk ke ERP.",
         deliverables: ["Bot WhatsApp / Telegram", "Workflow n8n", "RAG & few-shot prompting", "OCR dokumen", "Guardrail & logging"],
     },
     {
-        title: "Aplikasi SaaS & web",
+        title: "Aplikasi web pendamping",
         description:
-            "Produk full-stack dari MVP sampai punya pelanggan berbayar: login dan hak akses, panel admin, dashboard, logika harga, dan pembayaran — dirilis dan dites di perangkat asli.",
-        deliverables: ["Next.js / React", "API Node.js / Python", "PostgreSQL / Supabase", "Role-based access", "Vercel / Docker"],
-    },
-    {
-        title: "Product design & discovery",
-        description:
-            "Sebelum menulis kode, saya petakan alur kerjanya, tulis PRD, dan buat prototipe yang bisa Anda coba di HP — supaya yang divalidasi adalah hal yang tepat.",
-        deliverables: ["PRD & user flow", "Prototipe yang bisa diklik", "Design system UI", "UAT & panduan pengguna"],
-    },
-    {
-        title: "ERP & integrasi",
-        description:
-            "Menghubungkan sistem yang sudah dipakai bisnis Anda: kustomisasi dan migrasi Odoo, WhatsApp Cloud API, API pembayaran bank, dan sinkronisasi data antara ERP dan aplikasi web.",
-        deliverables: ["Modul Odoo 10–19", "WhatsApp Cloud API", "Bank SNAP / VA", "REST & webhook", "Laporan SQL"],
+            "Portal untuk pelanggan, warga, atau tim lapangan yang tersambung ke ERP — sampai produk SaaS yang berdiri sendiri, kalau memang itu yang dibutuhkan.",
+        deliverables: ["Next.js / React", "PostgreSQL / Supabase", "Portal pelanggan", "Aplikasi Flutter", "Vercel / Docker"],
     },
 ];
 
@@ -214,7 +214,6 @@ export const projects = [
     },
     {
         id: "wedding-saas",
-        featured: true,
         title: "SaaS Undangan Pernikahan Digital",
         category: "Aplikasi & SaaS",
         year: "2026",
@@ -318,11 +317,13 @@ export const projects = [
     },
     {
         id: "wa-cloud-erp",
+        featured: true,
         title: "Inbox WhatsApp Cloud & Penagihan di ERP",
         category: "ERP & Integrasi",
         year: "2022 – 2026",
         status: "Production",
         visual: "chat",
+        metric: { value: "Sejak 2022", label: "berjalan nonstop di production" },
         tagline: "WhatsApp Cloud API resmi di dalam ERP: kirim invoice, pengingat pembayaran otomatis, dan inbox dua arah untuk tim penagihan.",
         summary:
             "Empat generasi integrasi WhatsApp yang saya bangun untuk satu perusahaan — dari gateway Node.js di 2022 sampai modul Cloud API native dengan inbox kustom, registri template, dan pelacakan biaya pesan.",
@@ -535,6 +536,25 @@ export const projects = [
 
 export const skillGroups = [
     {
+        title: "Odoo (v10 → v19)",
+        items: [
+            "Modul kustom & inheritance",
+            "Sales & CRM",
+            "Inventory",
+            "Accounting",
+            "Purchase",
+            "Manufacturing",
+            "HR & payroll",
+            "Laporan QWeb & SQL",
+            "Migrasi versi & data",
+            "OWL (Odoo JS)",
+        ],
+    },
+    {
+        title: "Integrasi & otomasi",
+        items: ["WhatsApp Cloud API", "Bank SNAP / BCA API", "n8n", "REST & webhook", "JSON-RPC / XML-RPC", "Telegram Bot API", "Threads Graph API"],
+    },
+    {
         title: "AI engineering",
         items: [
             "Integrasi LLM (Gemini, Claude, OpenRouter)",
@@ -547,24 +567,16 @@ export const skillGroups = [
         ],
     },
     {
-        title: "Frontend & mobile",
-        items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion", "OWL (Odoo JS)", "Flutter", "Jetpack Compose"],
-    },
-    {
         title: "Backend & data",
-        items: ["Python", "Node.js / Express", "REST & webhook", "PostgreSQL", "Prisma", "Supabase (RLS, RPC)", "Flask", "Docker", "Socket.IO"],
+        items: ["Python", "PostgreSQL", "Node.js / Express", "Supabase (RLS, RPC)", "Prisma", "Flask", "Docker", "Socket.IO"],
     },
     {
-        title: "Otomasi & integrasi",
-        items: ["n8n", "WhatsApp Cloud API", "Telegram Bot API", "Threads Graph API", "Bank SNAP / BCA API", "JSON-RPC / XML-RPC", "Ekstensi Chrome"],
+        title: "Frontend & mobile",
+        items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Flutter", "Jetpack Compose"],
     },
     {
-        title: "Produk & desain",
-        items: ["PRD & decision record", "User flow", "Prototipe yang bisa diklik", "Google Stitch", "Design system", "UAT & QA", "Panduan pengguna", "Workshop stakeholder"],
-    },
-    {
-        title: "ERP (Odoo 10 → 19)",
-        items: ["Sales & CRM", "Inventory", "Accounting", "Purchase", "Manufacturing", "HR & payroll", "Laporan QWeb", "Migrasi data"],
+        title: "Produk & delivery",
+        items: ["PRD & decision record", "User flow", "Prototipe yang bisa diklik", "UAT & QA", "Panduan pengguna", "Workshop stakeholder", "Handover & estimasi"],
     },
     {
         title: "Alur kerja berbantuan AI",
