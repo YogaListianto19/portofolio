@@ -14,10 +14,10 @@ export const profile = {
     headline: {
         before: "Bikin Odoo ERP yang",
         highlight: "benar-benar dipakai",
-        after: " — plus AI di dalamnya.",
+        after: ".",
     },
     subheadline:
-        "Odoo technical engineer dengan 5+ tahun pengalaman di Odoo 10–19: modul kustom, migrasi versi, dan integrasi ke WhatsApp Cloud API serta API bank. Di atasnya saya pasang AI agent dan aplikasi web, supaya ERP-nya benar-benar dipakai tim Anda — bukan cuma terpasang.",
+        "Odoo technical engineer dengan 5+ tahun pengalaman di Odoo 10–19: modul kustom, migrasi versi, dan integrasi ke WhatsApp Cloud API serta API bank. Kalau alur kerjanya memang menuntut, otomasi dan AI agent bisa saya tambahkan sebagai sistem terpisah yang tersambung ke ERP.",
     ctaPrimary: "Lihat studi kasus",
     ctaSecondary: "Mulai proyek",
     avatar: "https://github.com/YogaListianto19.png",
@@ -154,9 +154,9 @@ export const services = [
         deliverables: ["WhatsApp Cloud API", "Bank SNAP / VA", "REST & webhook", "JSON-RPC / XML-RPC", "Sinkronisasi data"],
     },
     {
-        title: "AI agent di atas ERP",
+        title: "Otomasi & AI agent (opsional)",
         description:
-            "Asisten berbasis LLM yang benar-benar bekerja: membaca order dari chat, memilah pesan, menjawab dari basis pengetahuan Anda — lengkap dengan ambang keyakinan, log, dan konfirmasi manusia sebelum datanya masuk ke ERP.",
+            "Bukan bagian dari Odoo, melainkan sistem terpisah yang tersambung lewat API: bot WhatsApp yang membaca order, workflow n8n, atau OCR dokumen — selalu dengan konfirmasi manusia sebelum datanya masuk ke ERP. Dipasang hanya kalau alur kerjanya memang menuntut.",
         deliverables: ["Bot WhatsApp / Telegram", "Workflow n8n", "RAG & few-shot prompting", "OCR dokumen", "Guardrail & logging"],
     },
     {
