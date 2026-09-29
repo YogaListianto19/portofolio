@@ -29,6 +29,9 @@ export default function Hero() {
                 <div className="grid items-start gap-14 pt-10 sm:pt-14 lg:grid-cols-12 lg:gap-10">
                     <div className="lg:col-span-7 xl:col-span-8">
                         <Reveal delay={0.05}>
+                            <p className="mb-4 font-display text-base font-semibold tracking-[-0.01em] text-accent sm:text-lg dark:text-accent-bright">
+                                {profile.brand}
+                            </p>
                             <h1 className="text-[2.6rem] leading-[1.04] tracking-[-0.045em] sm:text-6xl lg:text-[4.4rem]">
                                 {profile.headline.before}{" "}
                                 <span className="text-gradient">
