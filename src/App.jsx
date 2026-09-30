@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
+import OdooExplained from "./sections/OdooExplained";
 import Services from "./sections/Services";
 import Projects from "./sections/Projects";
 import About from "./sections/About";
@@ -20,6 +21,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <OdooExplained />
         <Services />
         <Projects />
         <About />

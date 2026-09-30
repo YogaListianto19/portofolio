@@ -44,14 +44,14 @@ export default function Navbar() {
                     }`}
             >
                 <nav aria-label="Navigasi utama" className="flex h-14 items-center justify-between gap-4 px-3 sm:px-4">
-                    <a href="#beranda" className="flex items-center gap-2.5 rounded-lg font-display text-[17px] font-semibold tracking-[-0.02em]">
+                    <a href="#beranda" className="flex items-center gap-2.5 whitespace-nowrap rounded-lg font-display text-[17px] font-semibold tracking-[-0.02em]">
                         <span aria-hidden="true" className="grid h-8 w-8 place-items-center rounded-xl bg-brand-purple text-sm font-bold text-white shadow-glow">
                             Y
                         </span>
                         Yoga Listianto
                     </a>
 
-                    <ul className="hidden items-center gap-5 lg:flex">
+                    <ul className="hidden items-center gap-4 whitespace-nowrap xl:flex">
                         {navLinks.map((link, i) => (
                             <li key={link.href}>
                                 <a
@@ -66,7 +66,7 @@ export default function Navbar() {
                     </ul>
 
                     <div className="flex items-center gap-1 sm:gap-2">
-                        <span className="hidden text-[13px] tabular-nums text-stone-600 xl:inline dark:text-stone-400">
+                        <span className="hidden text-[13px] tabular-nums text-stone-600 2xl:inline dark:text-stone-400">
                             {profile.city}, {time} WIB
                         </span>
                         <button
@@ -77,7 +77,7 @@ export default function Navbar() {
                         >
                             {isDark ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
                         </button>
-                        <a href="#kontak" className="btn-primary hidden !min-h-[40px] !px-4 !text-sm sm:inline-flex">
+                        <a href="#kontak" className="btn-primary hidden whitespace-nowrap !min-h-[40px] !px-4 !text-sm sm:inline-flex">
                             Hubungi saya
                         </a>
                         <button
@@ -85,7 +85,7 @@ export default function Navbar() {
                             onClick={() => setIsOpen(!isOpen)}
                             aria-label={isOpen ? "Tutup menu" : "Buka menu"}
                             aria-expanded={isOpen}
-                            className="grid h-10 w-10 cursor-pointer place-items-center rounded-xl text-ink hover:bg-brand-purple/10 lg:hidden dark:text-stone-100 dark:hover:bg-white/10"
+                            className="grid h-10 w-10 cursor-pointer place-items-center rounded-xl text-ink hover:bg-brand-purple/10 xl:hidden dark:text-stone-100 dark:hover:bg-white/10"
                         >
                             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                         </button>
@@ -93,7 +93,7 @@ export default function Navbar() {
                 </nav>
 
                 {isOpen && (
-                    <div className="border-t border-brand-purple/10 lg:hidden dark:border-white/10">
+                    <div className="border-t border-brand-purple/10 xl:hidden dark:border-white/10">
                         <ul className="px-3 py-2">
                             {[...navLinks, { name: "Kontak", href: "#kontak" }].map((link, i) => (
                                 <li key={link.href}>

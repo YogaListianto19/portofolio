@@ -32,7 +32,7 @@ export default function Hero() {
                             <p className="mb-4 font-display text-base font-semibold tracking-[-0.01em] text-accent sm:text-lg dark:text-accent-bright">
                                 {profile.brand}
                             </p>
-                            <h1 className="text-[2.6rem] leading-[1.04] tracking-[-0.045em] sm:text-6xl lg:text-[4.4rem]">
+                            <h1 className="text-[2.6rem] leading-[1.04] tracking-[-0.045em] sm:text-[3.4rem] lg:text-[3.6rem]">
                                 {profile.headline.before}{" "}
                                 <span className="text-gradient">
                                     {profile.headline.highlight.split(" ").map((word, i) => (

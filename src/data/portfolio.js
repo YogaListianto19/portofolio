@@ -13,18 +13,19 @@ export const profile = {
     city: "Bandung",
     location: "Bandung, Indonesia",
     headline: {
-        before: "Bikin Odoo ERP yang",
-        highlight: "benar-benar dipakai",
+        before: "Pencatatan rapi dan terkontrol,",
+        highlight: "dari order sampai laporan keuangan",
         after: ".",
     },
     subheadline:
-        "Software engineer dengan 5+ tahun pengalaman di Odoo 10–19: implementasi, modul kustom, migrasi versi, dan integrasi ke WhatsApp Cloud API serta API bank. Kalau alur kerjanya memang menuntut, otomasi dan AI agent bisa saya tambahkan sebagai sistem terpisah yang tersambung ke ERP.",
+        "Bagi saya, Odoo itu alat kontrol, bukan sekadar alat catat: setiap transaksi saling terhubung, datanya bisa dipercaya, dan laporannya tinggal pencet. 5+ tahun saya mengimplementasikan dan mengkustom Odoo 10–19, termasuk integrasinya ke WhatsApp dan bank.",
     ctaPrimary: "Lihat studi kasus",
     ctaSecondary: "Mulai proyek",
     avatar: "https://github.com/YogaListianto19.png",
 };
 
 export const navLinks = [
+    { name: "Odoo", href: "#odoo" },
     { name: "Layanan", href: "#layanan" },
     { name: "Karya", href: "#karya" },
     { name: "Tentang", href: "#tentang" },
@@ -68,48 +69,98 @@ export const heroReceipt = {
     caption: "Ilustrasi satu order di AI agent WhatsApp → LLM → ERP yang saya bangun. Nama produk dan data disamarkan.",
 };
 
+// Odoo explained in a business owner's language: a control tool, not just a place to record things.
+export const odooFlows = [
+    { label: "Penjualan", tone: "teal", steps: ["Order masuk", "Produksi / siapkan barang", "Kirim", "Tagih", "Terima bayar"] },
+    { label: "Pembelian", tone: "pink", steps: ["Permintaan barang", "Pesan ke supplier", "Terima barang", "Bayar supplier"] },
+    { label: "Keuangan", tone: "purple", steps: ["Jurnal tercatat otomatis", "Hutang & piutang", "Laba rugi & neraca"] },
+];
+
+export const odooPoints = [
+    {
+        title: "Tidak ada yang diketik ulang",
+        description:
+            "Tagihan dibuat dari order dan pengiriman yang sudah tercatat. Setiap dokumen punya nomor dan bisa ditelusuri: tagihan ini dari order yang mana, sudah dikirim berapa kali, dibayar berapa kali.",
+    },
+    {
+        title: "Sistem yang mengingatkan",
+        description:
+            "Tagihan mana yang belum lunas, mana yang mau jatuh tempo, mana yang sudah lama tertunggak — sistem yang memberi tahu, bukan Anda yang mencari.",
+    },
+    {
+        title: "Titik kontrol di tiap tahap",
+        description:
+            "Barang belum boleh dikirim sebelum lunas? Revisi order harus tercatat sebelum produksi jalan? Aturan seperti ini dipasang langsung di alurnya, bukan diingat-ingat.",
+    },
+    {
+        title: "Data yang bisa dipercaya",
+        description:
+            "Transaksi yang sudah dibayar dikunci. Kalau salah, dibetulkan lewat koreksi — seperti bank, bukan dihapus. Setiap perubahan tercatat siapa dan kapan.",
+    },
+    {
+        title: "Tiap orang sesuai tanggung jawabnya",
+        description:
+            "Bagian produksi tidak perlu melihat nilai uang; bagian tagihan tidak perlu mengubah stok. Hak akses mengikuti peran masing-masing.",
+    },
+    {
+        title: "Biaya, untung, dan laporan tinggal pencet",
+        description:
+            "Bahan yang dipakai tercatat, jadi biaya dan untung per produk kelihatan. Rekap harian sampai tahunan, pelanggan terbesar, produk terlaris — tanpa merekap manual.",
+    },
+];
+
+export const odooClosing =
+    "Aplikasi itu cuma alat. Yang membuatnya berguna adalah alur yang pas dan kebiasaan input yang disiplin — itu yang saya bantu bangun.";
+
 export const sections = {
-    services: {
+    odoo: {
         index: "01",
+        label: "Kenapa Odoo",
+        title: "Odoo itu alat kontrol,",
+        emphasis: "bukan sekadar alat catat.",
+        lead: "Mencatat bisa di Excel. Nilai Odoo ada di kontrolnya: sistem yang mengingatkan, mengunci, dan menunjukkan apa yang terlewat — dari order sampai laporan keuangan.",
+    },
+    services: {
+        index: "02",
         label: "Layanan",
         title: "Odoo yang dikerjakan dari",
         emphasis: "proses bisnisnya.",
         lead: "Saya pegang seluruh prosesnya: memetakan alur kerja yang sebenarnya, menulis PRD, membangun modul dan integrasinya, memasang AI di tempat yang memang menguntungkan, lalu merilisnya ke production.",
     },
     work: {
-        index: "02",
+        index: "03",
         label: "Karya",
         title: "Studi kasus",
         emphasis: "pilihan.",
         lead: "Modul dan integrasi Odoo yang menggerakkan order dan uang sungguhan — plus AI agent dan aplikasi web yang saya bangun di atasnya.",
     },
     about: {
-        index: "03",
+        index: "04",
         label: "Tentang",
         title: "Engineer yang paham",
         emphasis: "proses bisnisnya dulu.",
     },
     skills: {
-        index: "04",
+        index: "05",
         label: "Keahlian",
         title: "Perkakas untuk",
         emphasis: "merilis produk.",
         lead: "Dikelompokkan berdasarkan hasil yang bisa dicapai — bukan persentase.",
     },
     experience: {
-        index: "05",
+        index: "06",
         label: "Pengalaman",
         title: "Pengalaman.",
     },
     process: {
-        index: "06",
+        index: "07",
         label: "Cara kerja",
-        title: "Pikirkan produknya dulu,",
-        emphasis: "baru kodenya.",
-        lead: "Anda mendapat partner yang bertanya “kenapa” sebelum “bagaimana” — dengan proses build yang dipercepat AI, tanpa melewatkan review dan pengujian.",
+        title: "Mulai dari yang sederhana,",
+        emphasis: "naik sambil berjalan.",
+        lead: "Sistem tidak perlu langsung lengkap. Alur inti dijalankan dulu sampai tim terbiasa, lalu ditambah sesuai kebutuhan — dengan satu syarat: datanya tetap bisa dipertanggungjawabkan.",
     },
     contact: {
-        index: "07",
+        index: "08",
         label: "Kontak",
     },
 };
@@ -512,15 +563,15 @@ export const projects = [
         year: "2025 – 2026",
         status: "Production",
         visual: "dashboard",
-        tagline: "Implementasi Odoo end-to-end untuk 10+ perusahaan: manufaktur, SO–DO, PO–GR, inventory, akuntansi, laporan keuangan, sampai landed cost.",
+        tagline: "Implementasi Odoo end-to-end untuk 10+ perusahaan: produksi, penjualan, pembelian, stok, akuntansi, sampai laporan keuangan dan landed cost.",
         summary:
             "Proyek klien di Odoo 13 sampai 19, Community dan Enterprise — dari catatan batch produksi pabrik kosmetik dan alur konsinyasi distributor alat medis, sampai landed cost multi-mata uang dan upgrade ISP ke Odoo 19.",
         role: "Software engineer — implementasi & modul kustom",
         problem: "Setiap bisnis punya proses yang tidak tercakup ERP standar, ditambah risiko saat memigrasikan data yang sedang berjalan.",
         built: [
             "Manufaktur (pabrik kosmetik): catatan batch produksi, nomor batch & kedaluwarsa otomatis, rekonsiliasi yield teoritis vs aktual, kontrol revisi formula",
-            "Sales → Delivery: alur konsinyasi ke rumah sakit (booking → kirim → laporan pemakaian → tagih yang terpakai), invoice dari beberapa DO, retur & tukar per cabang",
-            "Purchase → Receipt: purchase request → RFQ per supplier → PO berjenjang, QC di penerimaan, satu vendor bill dari banyak PO, bill impor dengan kurs kedatangan",
+            "Penjualan sampai pengiriman: alur konsinyasi ke rumah sakit (booking → kirim → laporan pemakaian → tagih yang terpakai), satu invoice untuk beberapa pengiriman, retur & tukar per cabang",
+            "Pembelian sampai penerimaan: permintaan → penawaran per supplier → pesanan berjenjang, QC saat barang datang, satu tagihan supplier dari banyak pesanan, tagihan impor dengan kurs kedatangan",
             "Inventory: kartu stok dengan lot & kedaluwarsa, reorder point per cabang, perbaikan valuasi average cost dan Standard → FIFO",
             "Akuntansi & laporan keuangan: laba rugi dan aging AR/AP per cabang, buku besar multi-mata uang, neraca kustom, e-Faktur Coretax",
             "Landed cost multi-mata uang: prorata dengan kurs tanggal bill, banyak penerimaan & banyak PO, nota kredit penyesuaian otomatis",
@@ -547,12 +598,12 @@ export const skillGroups = [
         title: "Odoo (v10 → v19)",
         items: [
             "Modul kustom & inheritance",
-            "Manufacturing (MRP)",
-            "Sales → Delivery (SO–DO)",
-            "Purchase → Receipt (PO–GR)",
-            "Inventory & valuasi",
+            "Manufaktur (MRP)",
+            "Penjualan: order → kirim → tagih (SO–DO)",
+            "Pembelian: pesan → terima → bayar (PO–GR)",
+            "Stok & valuasi",
             "Landed cost",
-            "Accounting & e-Faktur",
+            "Akuntansi & e-Faktur",
             "Laporan keuangan",
             "HR & absensi",
             "Migrasi versi & data",
@@ -616,8 +667,8 @@ export const experience = [
         points: [
             "Implementasi, kustomisasi, dan migrasi Odoo untuk 10+ perusahaan — distributor multi-cabang, pabrik kosmetik, distributor alat medis, ISP, retail, properti, dan klinik — di Odoo 13–19 Community & Enterprise, dengan 330+ commit.",
             "Manufaktur: catatan batch produksi dan dokumen induk produksi, nomor batch & tanggal kedaluwarsa otomatis, rekonsiliasi yield teoritis vs aktual, kontrol revisi formula, dan approval in-process control.",
-            "Sales → Delivery (SO–DO): alur konsinyasi ke rumah sakit yang hanya menagih barang terpakai, invoice gabungan dari beberapa DO/SO, retur & tukar barang per cabang, dan pencegah pengiriman melebihi order.",
-            "Purchase → Receipt (PO–GR): purchase request → RFQ per supplier → PO dengan approval berjenjang, QC saat penerimaan, approval untuk penerimaan kurang, dan satu vendor bill dari banyak PO.",
+            "Penjualan, dari order sampai barang terkirim dan tertagih: alur konsinyasi ke rumah sakit yang hanya menagih barang terpakai, satu invoice untuk beberapa pengiriman, retur & tukar barang per cabang, dan pencegah pengiriman melebihi order.",
+            "Pembelian, dari permintaan sampai barang diterima dan dibayar: permintaan pembelian → penawaran per supplier → pesanan dengan persetujuan berjenjang, QC saat barang datang, persetujuan untuk penerimaan kurang, dan satu tagihan supplier dari banyak pesanan.",
             "Inventory: kartu stok dengan lot & kedaluwarsa, reorder point per cabang (safety stock, lead time, stok dalam perjalanan), serta perbaikan valuasi average cost dan perpindahan Standard → FIFO.",
             "Akuntansi & laporan keuangan: laba rugi dan aging AR/AP per cabang, buku besar multi-mata uang, neraca kustom, e-Faktur Coretax, dan bill impor dengan kurs tanggal kedatangan.",
             "Landed cost multi-mata uang: alokasi prorata dengan kurs tanggal bill, satu biaya untuk banyak penerimaan dan banyak PO, serta nota kredit penyesuaian otomatis — 29 kebutuhan fungsional, 32/32 tes lolos.",
@@ -625,7 +676,7 @@ export const experience = [
             "Go-live & migrasi: cutoff saldo awal dalam satu malam untuk retail, upgrade Odoo 15 → 19 untuk ISP, dan sinkronisasi jurnal Community → Enterprise via REST — selalu dengan dry run, backup, dan rollback.",
             "Di luar Odoo: SaaS undangan pernikahan (live), portal iuran perumahan, landing page dengan SEO lokal, dan kursus teknis Odoo 19 sebanyak 24 sesi.",
         ],
-        tags: ["Odoo 13–19", "Manufacturing", "SO–DO", "PO–GR", "Accounting", "Landed cost", "HR"],
+        tags: ["Odoo 13–19", "Manufaktur", "Penjualan", "Pembelian", "Akuntansi", "Landed cost", "HR"],
     },
     {
         period: "Mar 2021 — Jul 2021",
@@ -647,39 +698,39 @@ export const experience = [
 
 export const processSteps = [
     {
-        title: "Discovery",
-        description: "Kita petakan alur kerja yang sebenarnya, siapa saja yang terlibat, dan seperti apa “selesai” itu. Pertanyaan yang canggung saya tanyakan di awal.",
-        output: "Ruang lingkup, PRD, dan estimasi tetap",
+        title: "Pahami alur hariannya",
+        description: "Mulai dari transaksi yang dikerjakan setiap hari: order, produksi, kirim, tagih. Saya banyak bertanya dulu sebelum mengubah apa pun.",
+        output: "Peta alur dan titik kontrol yang disepakati",
     },
     {
-        title: "Desain",
-        description: "User flow dan prototipe yang bisa Anda coba di HP sebelum satu baris kode production pun ditulis.",
-        output: "Prototipe + arah UI",
+        title: "Mulai dari yang sederhana",
+        description: "Alur inti dipasang lebih dulu supaya tim bisa lepas dari Excel. Kebutuhan lain ditambahkan sambil sistem berjalan.",
+        output: "Sistem inti yang bisa langsung dicoba",
     },
     {
-        title: "Build",
-        description: "Progres setiap minggu dengan alur kerja yang dipercepat AI, code review, dan pengecekan otomatis di perangkat asli.",
-        output: "Software yang berjalan setiap minggu",
+        title: "Latih bertahap",
+        description: "Training per bagian, dimulai dari pekerjaan sehari-hari masing-masing. Masa awal dipakai untuk membiasakan diri; salah input dibetulkan bersama.",
+        output: "Panduan pengguna dan pendampingan sampai lancar",
     },
     {
-        title: "Rilis & dukungan",
-        description: "Deploy, UAT bersama tim Anda, panduan pengguna, dan monitoring. Fitur AI dirilis lengkap dengan log dan guardrail.",
-        output: "Produk live + dokumen serah terima",
+        title: "Jaga datanya",
+        description: "Setiap permintaan perubahan didiskusikan dulu: apakah datanya tetap konsisten dan bisa dipercaya? Baru setelah itu dikerjakan, diuji, dan dirilis.",
+        output: "Data yang bisa dipercaya pemilik usaha",
     },
 ];
 
 export const engagementModels = [
     {
         title: "Proyek lingkup tetap",
-        description: "PRD yang jelas dan pembayaran per milestone. Cocok untuk MVP, landing page, bot, dan integrasi.",
+        description: "Ruang lingkup dan biaya disepakati di awal, dibayar per tahap. Cocok untuk modul kustom, integrasi, atau migrasi versi.",
     },
     {
         title: "Retainer bulanan",
-        description: "Pengembangan fitur, otomasi, dan dukungan berkelanjutan untuk produk atau ERP Anda.",
+        description: "Pengembangan dan dukungan berkelanjutan untuk Odoo yang sudah berjalan: perbaikan, fitur baru, dan laporan.",
     },
     {
         title: "Konsultasi & audit",
-        description: "Uji ide AI, alur kerja, atau sistem yang sudah ada — dapatkan rekomendasi tertulis dan rencana langkah.",
+        description: "Menilai alur kerja atau sistem yang sudah ada, lalu memberi rekomendasi tertulis dan rencana langkahnya.",
     },
 ];
 

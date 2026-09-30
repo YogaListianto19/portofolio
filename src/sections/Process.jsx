@@ -20,7 +20,7 @@ export default function Process() {
                                                 {String(i + 1).padStart(2, "0")}
                                             </p>
                                             <h3 className="mt-5 text-lg">{step.title}</h3>
-                                            <p className="muted mt-2 text-[15px] leading-relaxed">{step.description}</p>
+                                            <p className="muted mt-2 break-words text-[15px] leading-relaxed">{step.description}</p>
                                             <p className="mt-4 text-sm leading-relaxed">
                                                 <span className="font-semibold">Anda dapat: </span>
                                                 <span className="muted">{step.output}</span>
