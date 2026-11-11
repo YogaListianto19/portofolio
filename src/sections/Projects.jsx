@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, X, Lock } from "lucide-react";
 import { projects, projectFilters, sections } from "../data/portfolio";
-import ProjectShowcase, { ShotGallery } from "../components/ProjectShowcase";
+import ProjectShowcase, { ShotGallery, ShotLightbox } from "../components/ProjectShowcase";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { categoryTone } from "../components/tones";
@@ -96,6 +96,11 @@ function ProjectDrawer({ project, next, onClose, onNext }) {
     const panelRef = useRef(null);
     const reduce = useReducedMotion();
     const tone = categoryTone(project.category);
+    // Lightbox index, tied to the project it was opened for so it closes when moving to another project.
+    const [shotState, setShotState] = useState(null);
+    const shot = shotState?.pid === project.id ? shotState.index : null;
+    const openShot = useCallback((index) => setShotState({ pid: project.id, index }), [project.id]);
+    const closeShot = useCallback(() => setShotState(null), []);
 
     useEffect(() => {
         const onKey = (e) => {
@@ -154,7 +159,7 @@ function ProjectDrawer({ project, next, onClose, onNext }) {
                 </div>
 
                 <article className="px-6 pb-16 pt-8 sm:px-10">
-                    <ProjectShowcase project={project} size="drawer" className="aspect-[16/10] w-full rounded-2xl ring-1 ring-brand-purple/10" />
+                    <ProjectShowcase project={project} size="drawer" onOpen={openShot} className="aspect-[16/10] w-full rounded-2xl ring-1 ring-brand-purple/10" />
 
                     <h2 id="drawer-title" className="mt-8 text-[2.1rem] leading-[1.1] tracking-[-0.04em] sm:text-[2.6rem]">
                         {project.title}
@@ -185,7 +190,7 @@ function ProjectDrawer({ project, next, onClose, onNext }) {
                         </div>
                     )}
 
-                    <ShotGallery project={project} />
+                    <ShotGallery project={project} onOpen={openShot} />
 
                     <DetailBlock title="Yang saya bangun" items={project.built} />
                     <DetailBlock title="AI di dalamnya" items={project.ai} />
@@ -233,6 +238,7 @@ function ProjectDrawer({ project, next, onClose, onNext }) {
                     </button>
                 </article>
             </motion.div>
+            <ShotLightbox project={project} index={shot} onIndex={openShot} onClose={closeShot} />
         </div>
     );
 }
