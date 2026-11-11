@@ -230,6 +230,12 @@ export const projects = [
         year: "2026",
         status: "Production",
         visual: "chat",
+        shotBadge: "Tampilan asli · data contoh",
+        shotNote: "Percakapan memakai format balasan asli bot; nama pelanggan, produk, dan harga adalah data contoh. Kanvas diambil dari struktur workflow production.",
+        shots: [
+            { id: "wa-order-chat", caption: "Sales mengetik order singkat; bot membalas pratinjau lengkap dan baru menyimpan setelah sales membalas Y." },
+            { id: "wa-order-flow", caption: "Potongan workflow n8n production: router niat pesan, cek stok/harga/piutang ke ERP, parser AI, lalu satu jalur kirim balasan." },
+        ],
         metric: { value: "1.675+", label: "sales order dibuat oleh agent" },
         tagline: "Sales mengetik order dengan singkatan di WhatsApp; LLM mengubahnya menjadi sales order yang terkonfirmasi di ERP.",
         summary:
@@ -271,6 +277,13 @@ export const projects = [
         year: "2026",
         status: "Live",
         visual: "invite",
+        shotBadge: "Situs live",
+        shotNote: "Diambil dari situs yang sedang berjalan, memakai undangan contoh.",
+        shots: [
+            { id: "wedding-cover", caption: "Halaman pembuka undangan per tamu, dibuka dari link WhatsApp." },
+            { id: "wedding-mempelai", caption: "Bagian mempelai dengan navigasi bawah ala aplikasi." },
+            { id: "wedding-landing", caption: "Halaman jualan: pesan lewat WhatsApp, pilih dari 24 tema." },
+        ],
         metric: { value: "3 minggu", label: "dari ide sampai live, dalam 5 sprint" },
         tagline: "Produk undangan siap jadi: satu Google Form masuk, link WhatsApp personal untuk setiap tamu keluar.",
         summary:
@@ -308,6 +321,14 @@ export const projects = [
         year: "2026",
         status: "Pilot",
         visual: "mobile",
+        shotBadge: "Prototipe · data contoh",
+        shotNote: "Dari prototipe layar yang saya rancang dan uji bersama manajemen. Nama orang, pelanggan, dan merek diganti contoh.",
+        shots: [
+            { id: "crm-dashboard", caption: "Ruang manajemen: funnel pipeline, proposal terbaru, dan kunjungan hari ini dalam satu layar." },
+            { id: "crm-mobile-home", caption: "Beranda sales lapangan: target, pipeline, absen, dan pengingat check-in saat dekat lokasi customer." },
+            { id: "crm-mobile-leads", caption: "Daftar lead milik sales dengan status New dan Qualified." },
+            { id: "crm-mobile-checkin", caption: "Check-in kunjungan: selfie, koordinat GPS, dan jarak ke lokasi customer terverifikasi." },
+        ],
         metric: { value: "16", label: "peran pengguna dalam satu CRM" },
         tagline: "Satu CRM untuk marketing, sales, engineering & procurement — pipeline lead-to-deal, check-in kunjungan GPS, dan pelacakan mesin terpasang.",
         summary:
@@ -336,7 +357,7 @@ export const projects = [
             "Dites pada salinan production berisi ~12 ribu partner dan ~41 ribu sales order",
         ],
         stack: ["Odoo 15", "Python", "OWL", "PostgreSQL", "Flutter", "Riverpod", "SQLite", "JSON-RPC"],
-        note: "Sistem internal — screenshot tidak ditampilkan; gambar hanya ilustrasi.",
+        note: "Sistem internal — gambar dari prototipe layar, nama dan data diganti contoh.",
     },
     {
         id: "threads-ai-agent",
@@ -345,6 +366,11 @@ export const projects = [
         year: "2026",
         status: "Dalam pengembangan",
         visual: "flow",
+        shotBadge: "Dokumen asli",
+        shotNote: "Diagram dari dokumen arsitektur yang saya tulis untuk proyek ini.",
+        shots: [
+            { id: "threads-arsitektur", caption: "Arsitektur: lima workflow n8n, satu basis data, dan dua kanal keluar yang dipisah tegas, yaitu Threads untuk customer dan Telegram untuk tim." },
+        ],
         tagline: "Pemilahan komentar dan balasan sesuai karakter brand untuk akun Threads sebuah studio — dengan delapan guardrail dan manusia tetap memegang kendali.",
         summary:
             "Lima workflow n8n yang menarik komentar, mengklasifikasikannya dengan model cepat, menyusun balasan berbasis knowledge base dengan model utama, lalu mendorong calon pembeli ke papan lead di Telegram.",
@@ -375,6 +401,11 @@ export const projects = [
         year: "2022 – 2026",
         status: "Production",
         visual: "chat",
+        shotBadge: "Tampilan asli · data contoh",
+        shotNote: "Dirender dari template dan CSS modul asli; nama pelanggan, nomor, dan isi chat adalah data contoh.",
+        shots: [
+            { id: "wa-cloud-inbox", caption: "Inbox di dalam ERP: chip per nomor bisnis, status dibaca per orang, pengingat jatuh tempo otomatis, dan kirim invoice PDF." },
+        ],
         metric: { value: "Sejak 2022", label: "berjalan nonstop di production" },
         tagline: "WhatsApp Cloud API resmi di dalam ERP: kirim invoice, pengingat pembayaran otomatis, dan inbox dua arah untuk tim penagihan.",
         summary:
@@ -397,7 +428,7 @@ export const projects = [
         ],
         impact: ["Berjalan di production untuk tim finance dan penagihan", "Satu-satunya committer di repo gateway sejak 2022"],
         stack: ["Odoo 15", "Python", "OWL / JS", "PostgreSQL", "WhatsApp Cloud API", "Node.js", "Socket.IO"],
-        note: "Sistem internal — detail disamarkan.",
+        note: "Sistem internal — gambar memakai template asli dengan data contoh.",
     },
     {
         id: "ipl-portal",
@@ -406,6 +437,14 @@ export const projects = [
         year: "2026",
         status: "MVP",
         visual: "ledger",
+        shotBadge: "Aplikasi asli · data contoh",
+        shotNote: "Aplikasi aslinya dijalankan dengan data contoh; nama warga dan nominal bukan data sebenarnya.",
+        shots: [
+            { id: "ipl-admin", caption: "Panel admin pengurus: total tunggakan per blok, status sinkronisasi, dan daftar warga." },
+            { id: "ipl-dashboard", caption: "Dashboard warga: tagihan IPL dan kas miliknya sendiri, lengkap dengan tunggakan." },
+            { id: "ipl-tagihan", caption: "Rincian tagihan IPL dan progres pembayaran." },
+            { id: "ipl-pengeluaran", caption: "Pengeluaran terbuka untuk semua warga, demi transparansi." },
+        ],
         tagline: "Portal mandiri tempat warga mengecek tagihan iurannya sendiri dan melihat ke mana uang kas digunakan.",
         summary:
             "Portal Next.js + Supabase yang tersinkron dari Odoo 18 lokal — warga hanya melihat tagihannya sendiri, semua orang bisa melihat pengeluaran. MVP selesai dalam dua hari untuk satu blok berisi 59 rumah.",
@@ -459,6 +498,11 @@ export const projects = [
         year: "2026",
         status: "Dalam pengembangan",
         visual: "mobile",
+        shotBadge: "Rekaman layar asli",
+        shotNote: "Diambil dari rekaman layar aplikasi di HP Android saat pengujian.",
+        shots: [
+            { id: "pos-kasir", caption: "Layar kasir: input plat nomor dan KM, keranjang, pilihan tunai atau piutang." },
+        ],
         tagline: "Aplikasi kasir untuk bengkel motor & mobil — kontrol stok atomik, komisi mekanik, piutang, dan data laba yang hanya bisa dilihat pemilik.",
         summary:
             "Backend lead di tim 3 orang. Saya merancang arsitektur dan backend Supabase dengan row-level security yang menyembunyikan HPP dan laba dari kasir, serta RPC atomik yang mencegah stok minus.",
@@ -489,6 +533,11 @@ export const projects = [
         year: "2026",
         status: "Internal",
         visual: "dashboard",
+        shotBadge: "Tampilan asli · data contoh",
+        shotNote: "Panel ekstensi di halaman uji, dengan catatan rapat contoh.",
+        shots: [
+            { id: "mom-panel", caption: "Panel di samping rapat: catatan bertanda keputusan, action, pertanyaan, dan risiko, plus transkrip dan prompt." },
+        ],
         tagline: "Notulen rapat tanpa tagihan API: tangkap caption dan audio, transkripsi di laptop sendiri, lalu hasilkan prompt AI siap pakai.",
         summary:
             "Ekstensi Chrome untuk Meet, Teams, dan Zoom plus perekam desktop yang mentranskripsi secara lokal dengan Whisper — rapat 103 menit selesai dalam ~6 menit, tanpa biaya API.",
@@ -539,6 +588,12 @@ export const projects = [
         year: "2026",
         status: "Live",
         visual: "dashboard",
+        shotBadge: "Situs live",
+        shotNote: "Diambil dari situs yang sedang berjalan; nama dealer dan sales disamarkan.",
+        shots: [
+            { id: "car-pricelist", caption: "Daftar model dan harga OTR per varian." },
+            { id: "car-kalkulator", caption: "Kalkulator kredit: pilih model dan varian, isi DP, lalu kirim hasil simulasi ke WhatsApp." },
+        ],
         tagline: "Situs penghasil lead untuk seorang sales mobil — daftar harga, simulasi kredit yang langsung terhubung ke WhatsApp, dan SEO lokal.",
         summary:
             "Proyek freelance: situs statis yang cepat, muncul di pencarian lokal, dan mengubah pengunjung menjadi percakapan WhatsApp lengkap dengan simulasi cicilan.",

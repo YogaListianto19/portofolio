@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, X, Lock } from "lucide-react";
 import { projects, projectFilters, sections } from "../data/portfolio";
-import ProjectVisual from "../components/ProjectVisual";
+import ProjectShowcase, { ShotGallery } from "../components/ProjectShowcase";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { CATEGORY_TONE, categoryTone } from "../components/tones";
+import { categoryTone } from "../components/tones";
 
 const STATUS_DOT = {
     Live: "bg-brand-green",
@@ -59,7 +59,7 @@ function ProjectCard({ project: p, number, onOpen }) {
     const tone = categoryTone(p.category);
     return (
         <article className="panel group relative flex h-full flex-col p-3 transition-[box-shadow,border-color] duration-300 hover:border-brand-purple/25 hover:shadow-glow has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-teal dark:hover:border-white/20 dark:has-[:focus-visible]:ring-brand-teal-light">
-            <ProjectVisual kind={p.visual} tone={CATEGORY_TONE[p.category]} className="aspect-[16/9] w-full rounded-xl" />
+            <ProjectShowcase project={p} size="card" className="aspect-[16/9] w-full rounded-xl" />
             <div className="flex flex-1 flex-col px-2 pb-1 pt-4">
                 <p className="label flex flex-wrap items-center gap-x-2 gap-y-1 !text-xs">
                     <span className={`font-mono font-semibold ${tone.text}`}>{pad(number)}</span>
@@ -154,11 +154,7 @@ function ProjectDrawer({ project, next, onClose, onNext }) {
                 </div>
 
                 <article className="px-6 pb-16 pt-8 sm:px-10">
-                    <ProjectVisual
-                        kind={project.visual}
-                        tone={CATEGORY_TONE[project.category]}
-                        className="aspect-[16/9] w-full rounded-2xl ring-1 ring-brand-purple/10"
-                    />
+                    <ProjectShowcase project={project} size="drawer" className="aspect-[16/10] w-full rounded-2xl ring-1 ring-brand-purple/10" />
 
                     <h2 id="drawer-title" className="mt-8 text-[2.1rem] leading-[1.1] tracking-[-0.04em] sm:text-[2.6rem]">
                         {project.title}
@@ -188,6 +184,8 @@ function ProjectDrawer({ project, next, onClose, onNext }) {
                             <p className="muted mt-2 text-sm">{project.metric.label}</p>
                         </div>
                     )}
+
+                    <ShotGallery project={project} />
 
                     <DetailBlock title="Yang saya bangun" items={project.built} />
                     <DetailBlock title="AI di dalamnya" items={project.ai} />
@@ -299,10 +297,10 @@ export default function Projects() {
                                             <ArrowRight className="h-4 w-4" />
                                         </button>
                                     </div>
-                                    <div className="cursor-pointer lg:col-span-7" onClick={(e) => open(p.id, e)}>
-                                        <ProjectVisual
-                                            kind={p.visual}
-                                            tone={CATEGORY_TONE[p.category]}
+                                    <div className="group cursor-pointer lg:col-span-7" onClick={(e) => open(p.id, e)}>
+                                        <ProjectShowcase
+                                            project={p}
+                                            size="feature"
                                             className="aspect-[16/10] w-full rounded-3xl shadow-panel ring-1 ring-brand-purple/10 transition-shadow duration-300 hover:shadow-glow"
                                         />
                                     </div>
