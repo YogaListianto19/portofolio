@@ -2,7 +2,7 @@
 // Each image exists as <id>.webp (full) and <id>-sm.webp (720px desktop / 390px mobile).
 export const SHOTS = {
     "wa-order-chat": { w: 780, h: 1688, kind: "mobile" },
-    "wa-order-flow": { w: 1440, h: 900, kind: "desktop" },
+    "wa-order-alur": { w: 1440, h: 900, kind: "desktop" },
     "wedding-cover": { w: 780, h: 1688, kind: "mobile" },
     "wedding-mempelai": { w: 780, h: 1688, kind: "mobile" },
     "wedding-landing": { w: 1440, h: 900, kind: "desktop" },
