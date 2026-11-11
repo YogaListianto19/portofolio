@@ -473,6 +473,14 @@ export const projects = [
         year: "2021 – 2026",
         status: "Production",
         visual: "ledger",
+        shotBadge: "Rekonstruksi layar · data contoh",
+        shotNote: "Sistem internal, jadi layar disusun ulang dari struktur modul asli (field, status, alur approval) dengan data contoh. Layar aplikasi bank hanya ilustrasi.",
+        shots: [
+            { id: "snap-va-paid", caption: "Invoice lunas otomatis: bank memanggil Odoo saat nasabah memasukkan nomor VA, lalu saat membayar; pembayaran langsung dicocokkan ke invoice dan tercatat di log." },
+            { id: "snap-va-wizard", caption: "Aturan VA ditentukan di Odoo: per invoice atau per customer, BILL (nominal harus pas) atau NO BILL (masuk saldo), lengkap dengan pratinjau nomornya." },
+            { id: "snap-transfer", caption: "Transfer vendor berjenjang: maker, dua approver sesuai nominal, lalu releaser dengan OTP WhatsApp sebelum dikirim ke bank." },
+            { id: "snap-mbank", caption: "Sisi nasabah di aplikasi bank: nama, nomor invoice, dan nominal tagihan dibaca langsung dari Odoo." },
+        ],
         tagline: "Tagihan virtual account, rekonsiliasi otomatis, serta transfer vendor & payroll yang terkontrol di atas standar perbankan nasional SNAP.",
         summary:
             "Integrasi ERP ke bank dengan standar SNAP Bank Indonesia: tagihan VA dengan callback dan rekonsiliasi otomatis, plus modul transfer dengan kontrol maker-approver-releaser dan OTP WhatsApp.",
@@ -489,7 +497,7 @@ export const projects = [
         design: ["Mendiagnosis serialization failure di production pada rekonsiliasi VA sampai empat penyebab berlapis, dengan SQL forensik"],
         impact: ["Berjalan di production untuk tim finance", "Menghapus pencocokan pembayaran manual untuk invoice VA"],
         stack: ["Odoo 15", "Python", "SNAP BI / BCA API", "Flask", "PostgreSQL", "OTP WhatsApp"],
-        note: "Sistem internal — detail disamarkan.",
+        note: "Sistem internal — layar disusun ulang dengan data contoh.",
     },
     {
         id: "pos-workshop",
@@ -564,6 +572,13 @@ export const projects = [
         year: "2025 – 2026",
         status: "Production",
         visual: "dashboard",
+        shotBadge: "Rekonstruksi layar · data contoh",
+        shotNote: "Sistem internal, jadi layar disusun ulang dari struktur modul asli dengan data contoh.",
+        shots: [
+            { id: "kom-achievement", caption: "Achievement per sales per bulan dan kuartal: target, capaian, persen komisi, dan bonus, dihitung dari invoice." },
+            { id: "kom-paid", caption: "Settlement komisi per sales yang siap masuk payroll; tiap invoice punya level harga L0–L3, dan penjualan di bawah harga minimum tidak dapat komisi." },
+            { id: "loyal-level", caption: "Level loyalitas dari laba kotor 12 bulan, bukan omzet, ditambah level kolektibilitas dan poin yang bisa dipakai membayar invoice." },
+        ],
         tagline: "Komisi sales bertingkat yang dihitung otomatis dan program loyalitas pelanggan berbasis profit di dalam ERP.",
         summary:
             "Komisi dihitung dari pencapaian target bulanan dan kuartalan dengan level berbasis pricelist, plus tingkat loyalitas yang ditentukan dari profit riil setiap pelanggan.",
@@ -579,7 +594,7 @@ export const projects = [
         design: ["Dokumen serah terima dan manual pengguna untuk admin finance dan sales"],
         impact: ["Menggantikan perhitungan komisi manual di spreadsheet setiap akhir periode"],
         stack: ["Odoo 15", "Python", "PostgreSQL", "Laporan QWeb", "Cron job"],
-        note: "Sistem internal — detail disamarkan.",
+        note: "Sistem internal — layar disusun ulang dengan data contoh.",
     },
     {
         id: "car-dealer-landing",
@@ -618,6 +633,13 @@ export const projects = [
         year: "2025 – 2026",
         status: "Production",
         visual: "dashboard",
+        shotBadge: "Rekonstruksi layar · data contoh",
+        shotNote: "Layar klien tidak ditampilkan. Ini rekonstruksi jenis modul yang saya kerjakan, dengan data contoh.",
+        shots: [
+            { id: "erp-mrp-batch", caption: "Batch record produksi: nomor batch dan tanggal kedaluwarsa otomatis, revisi formula, lot per bahan, serta yield teoritis vs aktual." },
+            { id: "erp-landed-cost", caption: "Landed cost multi-mata uang: biaya impor memakai kurs tanggal bill, dialokasikan prorata ke beberapa penerimaan dan PO." },
+            { id: "erp-laba-rugi", caption: "Laba rugi per cabang dengan perbandingan bulan lalu; tinggal pilih periode lalu ekspor." },
+        ],
         tagline: "Implementasi Odoo end-to-end untuk 10+ perusahaan: produksi, penjualan, pembelian, stok, akuntansi, sampai laporan keuangan dan landed cost.",
         summary:
             "Proyek klien di Odoo 13 sampai 19, Community dan Enterprise — dari catatan batch produksi pabrik kosmetik dan alur konsinyasi distributor alat medis, sampai landed cost multi-mata uang dan upgrade ISP ke Odoo 19.",
@@ -644,7 +666,7 @@ export const projects = [
             "Mengajar kursus teknis Odoo 19 sebanyak 24 sesi (28 deck, 525 slide)",
         ],
         stack: ["Odoo 10–19", "Python", "PostgreSQL", "XML / QWeb", "OWL", "XML-RPC", "Docker"],
-        note: "Nama klien tidak ditampilkan.",
+        note: "Nama klien tidak ditampilkan; layar disusun ulang dengan data contoh.",
     },
 ];
 
